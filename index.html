@@ -4,6 +4,7 @@
 Redirect
 </title>
 <script>
+window.alert(window.location.pathname.split("/").splice(2,0,"tree","master").join("/"));
 top.location="https://github.com/lbogaardt"+window.location.pathname.split("/").splice(2,0,"tree","master").join("/");
 </script>
 </head>

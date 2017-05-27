@@ -4,7 +4,7 @@
 Redirect
 </title>
 <script language="javascript">
-top.location="https://github.com/lbogaardt"+window.location.pathname;
+top.location="https://github.com/lbogaardt"+window.location.pathname.split("/").splice(2, 0, "tree", "master").join("/");
 </script>
 </head>
 <body>

@@ -1,0 +1,519 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath,graphicx,fullpage,microtype,hyperref,subfig,hypcap,amsfonts,parskip,multirow,titlesec}
+
+\titlespacing\section{0pt}{20pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+\titlespacing\subsection{0pt}{16pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+
+\widowpenalty=2000
+\clubpenalty=2000
+\hyphenpenalty=400
+\interfootnotelinepenalty=400
+\DisableLigatures{encoding=*,family=*}
+\numberwithin{equation}{section}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+\renewcommand*{\arraystretch}{2.1}
+
+\begin{document}
+
+\label{sec:Cover Page}
+\addcontentsline{toc}{section}{Cover Page}
+
+\href{http://www.cam.ac.uk}{University of Cambridge} \hfill \href{http://www.royalsocietypublishing.org}{Proceedings of the Royal Society}\\
+\href{http://www.bogaardtresearch.tk}{Laurens Bogaardt} \hfill \href{http://rspb.royalsocietypublishing.org}{Series B: Biological Sciences}\\
+\href{mailto:lb591@cam.ac.uk}{lb591@cam.ac.uk} \hfill 14-10-2014\\
+
+\vspace{5cm}
+
+\begin{center}
+\begin{LARGE}
+\begin{bf}
+Handicap Signalling Combined with a Quality Cue
+\end{bf}
+\end{LARGE}
+\end{center}
+
+\vfill
+
+\begin{center}
+\begin{minipage}[t]{0.72\textwidth}
+\begin{bf}
+Abstract
+\end{bf}
+\vspace{.2cm}
+\newline
+In this paper, ...
+\end{minipage}
+\end{center}
+
+\vspace{.6cm}
+
+\begin{center}
+\begin{minipage}[t]{0.72\textwidth}
+\begin{bf}
+Acknowledgements
+\end{bf}
+\vspace{.2cm}
+\newline
+The author wishes to thank ...
+\end{minipage}
+\end{center}
+
+\vspace{.6cm}
+
+\newpage
+
+
+\phantomsection
+\label{sec:Contents}
+\addcontentsline{toc}{section}{Contents}
+\renewcommand{\contentsname}{Contents\\} 
+
+\tableofcontents
+
+\newpage
+
+
+\section{Introduction}
+\label{sec:Introduction}
+
+Handicap signalling was first described in Spence's signalling model~\cite{Spence1973}. Within biology, it was independently suggested by Zahavi, using verbal arguments, and modelled by Grafen~\cite{Zahavi1975, Zahavi1977, Grafen1990, Grafen1990a}. In appendix~\ref{sec:Signalling without a Cue}, we discuss a simple model of signalling which shows that, over a fairly restricted range of parameters, signalling can be a stable equilibrium. This model is unrealistic, however, in its assumption that the level of signalling was the only basis on which the receiver could assess the sender's quality. In nature, animals must surely be able to combine multiple inputs to arrive at an overall assessment of the observed quality~\cite{Jennions1997, Candolin2003}. As such, let us now extend the simple signalling model by including a quality cue, next to the signal. 
+
+
+The mathematical framework used in this article can also be applied to study the observable amplification of a quality cue~\cite{Bogaardt2014}.
+
+\newpage
+
+
+\section{Model and Assumptions}
+\label{sec:Model and Assumptions}
+
+In this model, there are two individuals, a sender and a receiver. These two players are drawn at random from a large population. The sender may be either of high quality or of low quality. More precisely, let the value $q \in \mathbb{R}$ of the two qualities be $q_{H}$ and $q_{L}$. The proportion of senders with high quality is $0<p<1$, whereas the proportion of low quality senders is equal to $1-p$.
+
+The receiver stands to gain by correctly identifying the quality of the sender and by responding appropriately. Let us assume there are two possible responses, $G$ for \textit{good} and $B$ for \textit{bad}. The sender always stands to gain by eliciting the favourable response $G$ from the receiver. The associated payoff, $b_{H}$ or $b_{L}$, may depend on the quality of the sender. Here, $b_{H}$ stands for \textit{benefit high} and $b_{L}$ for \textit{benefit low}. If the response from the receiver is $B$, the sender obtains a payoff of zero.
+
+For the receiver, the resulting payoff depends on the four possible outcomes within signal detection theory, which are a \textit{true positive}, a \textit{false negative}, a \textit{false positive} and a \textit{true negative}. For example, a true positive occurs when the receiver responds with $G$ to a truly high quality sender. The associated payoffs are $b_{TP}$, $b_{FN}$, $b_{TN}$ and $b_{FP}$. Obviously, $b_{TP}>b_{FN}$ and $b_{TN}>b_{FP}$.
+
+The receiver, however, cannot assess the sender's quality with complete accuracy. Instead, it must rely on an error-prone cue $P_{q}$, which stands for the \textit{perception of quality}. This may take any value along an axis. The sender has the ability to signal to the receiver, but incurs a cost by doing so, $c_{H}$ or $c_{L}$, which may be dependent on its quality. The receiver, therefore, also relies on an error-prone signal $P_{s}$, which stands for the \textit{perception of the signal}, to assess the sender's quality. This, too, may take any value along an axis.
+
+Let us assume that both the perception of the signal and the perception of quality follow a normal distribution which is centered around the sender's true level of signalling and quality. This distribution has a variance $\sigma^{2}_{q}$ reflecting error in quality perception and a variance $\sigma^{2}_{s}$ reflecting error in signal perception. These parameters are measures of how precisely the receiver can evaluate the quality of the sender. The combined perception of the quality cue and the handicap signal follows a bivariate normal distribution as given in equation~\ref{eq:CueandSignalDetectionModel/Normal}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/Normal}
+N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) = \frac{1}{2 \pi \sigma_{q} \sigma_{s}} e^{-\frac{(P_{q}-q)^2}{2 \sigma_{q}^2}-\frac{(P_{s}-s)^2}{2 \sigma_{s}^2}}
+\end{equation}
+
+The scale in the perception of quality in this model is set by either the distance between $q_{H}$ and $q_{L}$ or $\sigma_{q}$. The scale in the perception of the signal is set by the relative difference between $c_{H}$ and $c_{L}$ or by $\sigma_{s}$. This means we can fix several of these parameters. Let us set $q_{H}=1$ and $q_{L}=0$ and allow $\sigma_{q}$ to be the free parameter which defines the receiver's ability to detect the quality of the sender. Let us also set $\sigma_{s}=1$ and allow the cost functions to be the free parameters which determine the sender's incentive to signal to the receiver.
+
+\newpage
+
+Figure~\ref{fig:Figure 36.pdf} shows the two-dimensional perception-axes with two normal distributions representing a high and a low quality sender.
+
+\begin{figure}[h]
+\captionsetup{width=350pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=.7]{"Figure 36.pdf}
+\caption{Model in equilibrium for Log[$K$]$=0$, $\sigma_{s}=1$, $c_{H}=0.01$ and $c_{L}=0.02$, showing the perception of a high quality sender (diagonal lines) and a low quality sender (horizontal and vertical lines), as well as the optimal threshold-line.}
+\label{fig:Figure 36.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Methods}
+\label{sec:Methods}
+
+When the receiver comes across a sender, it tries to assess that sender's quality. It perceives a cue, which is a value on a quality-axis. The sender may also have signalled and the level of signalling is also partially observable to the receiver. Based on these two values, the receiver has to make a choice of how to respond. The receiver's strategy consists of a range of values for which the receiver responds with $G$ and a complementary range of values for which it responds with $B$. Let us define the region on the two-dimensional perception-axes for which it responds with $G$ as $R_{G}$, for \textit{region good}.
+\begin{equation}
+\label{eq:CueDetectionModel/RegionG}
+R_{G} = {R_{B}}^{c}
+\end{equation}
+
+Figure~\ref{fig:Figure 36.pdf} shows this region $R_{G}$ meshed with diagonal lines and bounded by a straight, thick line. All other values on this plane result in the response $B$. In this section, we will try to find out what the optimal strategy is.
+
+The payoff the receiver obtains when it correctly identifies a high quality sender, by assigning it $G$, is defined as $b_{TP}$. The proportion of high quality senders is $p$. Therefore, the payoff from correctly identifying a high quality sender is equal to the double integral of the bivariate normal distribution over region $R_{G}$, multiplied by these two variables. Similar calculations follow for the incorrect identification of a high quality sender and for the identification of a low quality sender, leading to the receiver's payoff, $P_{R}$, in equation~\ref{eq:CueandSignalDetectionModel/PayoffR}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/PayoffR}
+\begin{array}{rcl}
+P_{R}(R_{G}) &=& p \; b_{TP} \displaystyle \iint_{R_{G}} N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) \; dP_{q}dP_{s} +\\
+&&p \; b_{FN} \displaystyle \iint_{R_{B}} N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) \; dP_{q}dP_{s} +\\
+&&(1-p) \; b_{FP} \displaystyle \iint_{R_{G}} N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) \; dP_{q}dP_{s} +\\
+&&(1-p) \; b_{TN} \displaystyle \iint_{R_{B}} N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) \; dP_{q}dP_{s}
+\end{array}
+\end{equation}
+
+In order to find out how the receiver should best respond, i.e. what $R_{G}$ is optimal, let us define $t=\partial R_{G}$ as the boundary of the region. Using differentiation under the integral sign, we can see how changes in this boundary affect the receiver's payoff. This is described more accurately in appendix~\ref{sec:Full Methods}. In this two-dimensional signal detection model, $t$ is a function of $P_{s}$. Therefore, $t(P_{s})$ describes a threshold-line within the two-dimensional perception-space. This can be seen as the straight, thick line in figure~\ref{fig:Figure 36.pdf}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/Threshold}
+t(P_{s})=\frac{(s_{H}^2-s_{L}^2)\sigma_{q}^{2}+\sigma_{s}^{2}}{2 \sigma_{s}^{2}}-\sigma_{q}^{2}\text{Log}[K]-(s_{H}-s_{L})\frac{\sigma_{q}^{2}}{\sigma_{s}^{2}} P_{s}
+\end{equation}
+
+In equation~\ref{eq:CueandSignalDetectionModel/Threshold}, we have used a new parameter, $K$. As explained in the article by Johnstone, the parameter $K$ represents the receiver's incentive to respond and it is a measure of the relative costs and risks of false positives and false negatives~\cite{Johnstone1997}.
+\begin{equation}
+\label{eq:K}
+K=\frac{p}{1-p}\frac{b_{TP}-b_{FP}}{b_{TN}-b_{FN}}
+\end{equation}
+
+The optimal strategy for the receiver consists of a region $R_{G}$ for which it responds to the sender with $G$ and a complementary region $R_{B}$ for which it responds with $B$. These are defined by the threshold $t(P_{s})$, given in equation~\ref{eq:CueandSignalDetectionModel/RG}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/RG}
+R_{G} = \{P_{q}, P_{s} \in \mathbb{R}^{2} : P_{q}>t(P_{s})\}
+\end{equation}
+
+Whenever the perceived quality of the sender falls below the threshold value $t$, when it falls in region $R_{B}$, the receiver responds with $B$. If $K$ increases, threshold $t$ moves to lower values. This means the receiver will responds more favourably to senders. The parameter $K$ can increase if the proportion of high quality senders, $p$, increases, or when the payoffs change such that the receiver has a larger incentive to respond favourably. Figure~\ref{fig:Figure 36.pdf} shows this threshold for $K=1$.
+
+Given the receiver's response-strategy, the sender's payoff, $P_{S}$, is given by equation~\ref{eq:CueandSignalDetectionModel/PayoffS}. Here, the integral is, again, performed over two variables, where $b_{q} \in \{b_{H}, b_{L}\}$ and $c_{q} \in \{c_{H}, c_{L}\}$.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/PayoffS}
+P_{S}(s) = b_{q} \displaystyle \iint_{R_{G}} N(P_{q}, P_{s}, q, s, \sigma_{q}, \sigma_{s}) \; dP_{q}dP_{s} - c_{q} \, s^{3}
+\end{equation}
+
+We cannot obtain a closed form for this integral, however, we can use equation~\ref{eq:CueandSignalDetectionModel/PayoffS} to find an analytical expression for the marginal payoff of signalling, allowing us to determine the optimal behaviour of the sender. This is described more accurately in appendix~\ref{sec:Full Methods}, which also presents arguments for the use of the cubicly increasing cost function of signalling.
+
+
+\newpage
+
+
+\section{Results}
+\label{sec:Results}
+
+An equilibrium of this model is reached when neither the high nor the low quality sender has an incentive to change its level of signalling, given the receiver's optimal strategy $R_{G}$. Before we turn to these calculations, let us examine equation~\ref{eq:SignalDetectionModel/DifferentialPayoffS} more carefully.
+
+At equilibrium, the marginal cost and the marginal benefit of signalling should equate. Therefore, the optimal level of signalling is not determined by the cost $c_{H}$ or $c_{L}$, but by the relative costs $\frac{c_{H}}{b_{H}}$ and $\frac{c_{L}}{b_{L}}$. Let us now define the ratio between these two relative costs, in equation~\ref{eq:SignalDetectionModel/RatioCost}.
+\begin{equation}
+\label{eq:SignalDetectionModel/RatioCost}
+r_{c} = \frac{c_{H}}{c_{L}} \frac{b_{L}}{b_{H}}
+\end{equation}
+
+Furthermore, at equilibrium, the marginal payoff of signalling for the high quality sender should be equal to the marginal payoff for the low quality sender, both of which are zero. The relative marginal benefit of signalling depends on the position of the threshold $t$. This can be seen in figure~\ref{fig:Figure 36.pdf}. Given the receiver's optimal strategy, the ratio between the marginal benefit of the high quality sender and the low quality sender is equal to $K$.  This provides us with a simple, analytical expression for the ratio between the levels of signalling for the high and the low quality sender, i.e. $s_{L}=r \, s_{H}$ where $0 \leq r \leq 1$. Here, the square root comes from our choice of a quadratic marginal cost function.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/Ratio}
+r=\sqrt{r_{c} K}
+\end{equation}
+Now that we know this ratio, we can reduce the two unknown variables $s_{H}$ and $s_{L}$ to a single unknown variable $s_{r}$. This is what allows us to visualise the costs and the benefits associated with signalling in figure~\ref{fig:Figure 3132} in appendix~\ref{sec:Full Methods}.
+
+This ratio has the interesting property that it can exceed $1$. This might suggest that the low quality sender would signal at a level higher than the high quality sender, even when its costs are higher. However, this would not make sense, as it is in the low quality sender's interest to resemble a high quality sender as best as possible. The low quality sender wants to do what the high quality sender does, because that way it might be mistaken for a high quality sender and get response $G$ from the receiver. Therefore, it must be concluded that, if ratio $r$ exceeds $1$, the only possibility is that the level of signalling is zero. This reduces to the condition for signalling in equation~\ref{eq:CueandSignalDetectionModel/Zone}, which is shown graphically in figure~\ref{fig:Figure 30.pdf}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/Zone}
+K <\frac{1}{r_{c}}
+\end{equation}
+
+Another way to look at the condition in equation~\ref{eq:CueandSignalDetectionModel/Zone} is that, when $K$ is high, the benefit of signalling is such that it allows low quality signallers to `keep up' with high quality ones. No matter what level of signalling the high quality sender chooses, the low quality sender will choose, and will be able to choose, that same level. There is, therefore, no benefit from signalling for the high quality sender, who will choose not to signal at all. Figure~\ref{fig:Figure 30.pdf} shows these two zones in parameter-space.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 30.pdf}
+\caption{Equilibria}
+\label{fig:Figure 30.pdf}
+\end{center}
+\end{figure}
+
+Furthermore, it can be concluded that signalling is far more stable if there is a secondary quality cue present. This is easily seen by comparing the ranges of parameters for which signalling occurs in figure~\ref{fig:Figure 30.pdf} with figure~\ref{fig:Figure 23.pdf} of the simpler model in appendix~\ref{sec:Signalling without a Cue}. In this simple model, a Log[$K$] which is different from zero led to a rapid decrease in the benefit of signalling. This quickly caused the signalling equilibrium to disappear, as seen in figure~\ref{fig:Figure 202122} of appendix~\ref{sec:Signalling without a Cue}. In our full model, non-zero values of Log[$K$] can still lead to the instability of the signalling equilibrium. Fortunately, it only happens for extremely high or extremely low values of Log[$K$], or when $\sigma_{q}$ is so high that the current model basically reduces to the simpler model without the quality cue. Therefore, the addition of a quality cue makes handicap signalling more stable. More precisely, a low value of $\sigma_{q}$ results in the stability of the signalling equilibrium over a wider range of parameter-values. This is a key finding of this model.
+
+What is even more interesting is that signalling is possible even when the cost to the high quality sender is higher than the cost to the low quality sender. At least, when the cost function of the high quality sender is higher than that of the low quality sender. This only arises when Log[$K$] is very low. For a low Log[$K$], the threshold between $R_{B}$ and $R_{G}$ is set very high, meaning the receiver only responds with $G$ when the perceived level of quality is high. This comes as a disadvantage to the low quality sender, who, despite its relatively low cost of signalling, will not feel an incentive to signal strongly. The marginal benefit of signalling is determined by the height of the normal distribution at the threshold. Therefore, in this case, the benefit of signalling is far larger for the high quality sender than it is for the low quality sender. Even though the cost to the high quality sender is substantial, it will signal at a higher level than the low quality sender. In our model of handicap signalling with an additional quality cue, it can be seen that the stability of signalling does not necessarily need differential costs, but that differential benefits arise naturally. This is another key finding of this model.
+
+\newpage
+
+It may be interesting to plot the levels of signalling as a function of the cost, together with the information content of the signal. This is done in figure~\ref{fig:Figure 35.pdf}.
+\begin{figure}[h]
+\captionsetup{width=300pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=1.1]{"Figure 35.pdf}
+\caption{Level of signalling for the high quality sender (thick) and low quality sender (thick) as a function of the relative cost, as well as the information content of the quality cue (dotted), the signal (dashed) and both messages combined (dot-dashed), when $c_{L}=0.10$.}
+\label{fig:Figure 35.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Discussion}
+\label{sec:Discussion}
+
+Although the concept is a well established theory of conspicuous male display, like the Fisher runaway process, handicap signalling requires female choice for a particular display well before it pays males to produce that display~\cite{Kirkpatrick1982}. High initial frequency of choice is usually explained by pleiotropy or genetic drift~\cite{Kirkpatrick1982, Heisler1984}. These theories relied on restricting assumptions, however, and had difficulties explaining the origin of direct female choice for a male display when there was a cost involved~\cite{Pomiankowski1987}. It was suggested by Hasson that the modelling of observable amplifiers can provide a pathway to female preferences and can potentially remove the theoretical difficulty of explaining the origin of direct female choice for any type of male display~\cite{Hasson1989}. A recent article shows how amplifiers can, indeed, lead to direct choice~\cite{Bogaardt2014}. This can explain the initial push in the direction of signalling needed to arrive at the signalling equilibrium, as shown in figure~\ref{fig:Figure 32.pdf} in appendix~\ref{sec:Full Methods}.
+
+The begging displays of young chicks, soliciting for food to their parents, can be explained theoretically as a form of handicap signalling~\cite{Godfray1991}. There is a large variety of species whose young show begging displays~\cite{Kilner1997}. One example is of the canary \textit{Serinus canaria}, whose parents respond to calling behaviours of the chicks by feeding louder chicks more~\cite{Kilner1995}. One way in which the honesty of these begging calls is maintained is through energy costs. In an experiment, a higher begging intensity led to mass loss as a result of metabolic expenditure. It has also been shown that excessive begging retarded growth. Limiting growth might be interpreted as a fitness cost, as daily mass gain correlates with the likelihood of survival to independence~\cite{Kilner2001}. It has been shown that the canary parents are able to respond to many cues besides the begging display when allocating food~\cite{Kilner1995}. It is reasonable to assume the parents are able to assess their offspring's need for food in a more direct manner. For example, by remembering the amount of food it provided to each chick in previous feeding-sessions, it can estimate how needy a chick truly is. This assessment, relying on memory, is obviously error-prone. However, the current model has shown that even an error-prone cue can have a large impact by making the signalling mechanism more stable.
+
+\newpage
+
+
+\phantomsection
+\label{sec:Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\renewcommand{\refname}{Bibliography}
+\bibliographystyle{acm}
+\bibliography{../Bibliography}
+
+\newpage
+
+
+\appendix
+
+\section{Extensive Form}
+\label{sec:Extensive Form}
+
+In section~\ref{sec:Model and Assumptions}, a verbal description of the model was presented. The model may also be given in extensive form, as depicted in figure~\ref{fig:Figure 28.pdf}. This figure shows all the steps in our model, starting in the middle where Nature makes a random choice between a high quality sender with probability $p$ and a low quality sender with probability $1-p$. The sender has the ability to signal and chooses a level of $s$, incurring a cost which depends on its quality. The value of $s$ is not directly observable to the receiver, as indicated by the dotted lines. Nature then makes another random choice concerning the quality cue the receiver obtains, chosen from a normal distribution. Nature then makes a final random choice concerning the receiver's perception of the level of signalling, also chosen from a normal distribution. The dotted lines indicate the receiver's information set. It cannot perfectly assess whether the observation of quality came from a high or low quality sender. Ultimately, the receiver has to make a choice between assigning the sender with either $G$ or $B$.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.65]{"Figure 28.pdf}
+\caption{Extensive form}
+\label{fig:Figure 28.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Full Methods}
+\label{sec:Full Methods}
+
+In order to find out what definition of $R_{G}$ gives the receiver the highest payoff, a simple mathematical trick can be applied. We can take a `slice' of the two-dimensional normal distribution by fixing, for example, $P_{s}$. This is shown in figure~\ref{fig:Figure 29.pdf}. The mathematics of a bivariate normal distribution is such that, when fixing $P_{s}$ by plugging in a number, the resulting function is a simple, one-dimensional normal distribution. Consequently, we can apply the same method of determining the threshold $t$ as described in the article by Johnstone~\cite{Johnstone1997}.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.7]{"Figure 29.pdf}
+\caption{Slicing the full model}
+\label{fig:Figure 29.pdf}
+\end{center}
+\end{figure}
+
+To be more precise, let us take a `sliced' version $\tilde{P}_{R}(\tilde{R}_{G}(P_{s}))$ of the receiver's total payoff $P_{R}(R_{G})$, by simply not performing one of the two integrals.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/SlicedPayoffR}
+P_{R}(R_{G}) = \displaystyle \int \tilde{P}_{R}(\tilde{R}_{G}(P_{s})) \; dP_{s}
+\end{equation}
+
+Let us now define $t(P_{s})=\partial \tilde{R}_{G}(P_{s})$ as the boundary of the region `good' for this \mbox{one-dimensional} slice of the payoff. Using differentiation under the integral sign, we can see how changes in this boundary affect the receiver's payoff and we obtain equation~\ref{eq:CueandSignalDetectionModel/DifferentialPayoffR}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/DifferentialPayoffR}
+\frac{d}{dt}\tilde{P}_{R}(t)= \frac{(1-p) \; (b_{TP}-b_{FN})}{2 \pi \sigma_{q} \sigma_{s}} e^{-\frac{(0-t)^2}{2 \sigma_{q}^2}-\frac{(P_{s}-s_{L})^2}{2 \sigma_{s}^2}} - \frac{p \; (b_{TN}-b_{FP})}{2 \pi \sigma_{q} \sigma_{s}} e^{-\frac{(1-t)^2}{2 \sigma_{q}^2}-\frac{(P_{s}-s_{H})^2}{2 \sigma_{s}^2}}
+\end{equation}
+
+Equation~\ref{eq:CueandSignalDetectionModel/DifferentialPayoffR} can be set equal to zero and solved for $t$ to find the optimal value of $t(P_{s})$ which defines the receiver's optimal strategy, as given in equation~\ref{eq:CueandSignalDetectionModel/Threshold}.
+
+The payoff of the sender is partially determined by its own level of signalling. This is because handicap signalling entails a cost. A general cost function can be defined via its Taylor-expansion, as in equation~\ref{eq:SignalDetectionModel/CostFunction}.
+\begin{equation}
+\label{eq:SignalDetectionModel/CostFunction}
+c(s)=\sum_{i=0}^{\infty} c_{i} \; s^{i}
+\end{equation}
+
+It makes sense for the cost function to start at zero and be increasing at an increasing rate. Let us quickly examine the cost and benefit functions, to make an informed decision over the functional form of the cost function. As can be seen in figure~\ref{fig:Figure 3132}, the marginal benefit of signalling starts off at zero, when signalling is zero. This has a quite simple explanation. In this model, the receiver obtains information concerning the quality of the sender from two sources; the quality cue and the level of signalling. If neither the high nor the low quality sender signals, the receiver assesses the quality of the sender using solely the quality cue. Consequently, there is no preference for signalling and no benefit in signalling to the sender. As the level of signalling increases, the receiver starts incorporating this information into its assessment of quality. Therefore, the marginal benefit of signalling increases.
+\begin{figure}[h]
+\begin{center}
+\subfloat[Linear marginal cost]{\label{fig:Figure 31.pdf}\includegraphics[scale=.6]{"Figure 31.pdf}}
+\hspace{8mm}
+\subfloat[Quadratic marginal cost]{\label{fig:Figure 32.pdf}\includegraphics[scale=.6]{"Figure 32.pdf}}
+\caption{Cost (dotted) and benefit (dashed) functions}
+\label{fig:Figure 3132}
+\end{center}
+\end{figure}
+ 
+If we were to choose a quadratically increasing cost function, meaning a linearly increasing marginal cost function, there would be some level of cost for which it does not pay the sender to signal. This can be seen in figure~\ref{fig:Figure 31.pdf}. This upper limit on the cost has a completely arbitrary value and provides little realism to our model. In fact, it only complicates our model, making the final results harder to interpret. If we were to choose a cost function which increases cubicly, this problem does not arise. The results of our model would be much smoother and more easily interpreted. No matter what cost, the sender would adopt at least some level of signalling. We shall, therefore, choose a simple cubicly increasing cost function, as given in equation~\ref{eq:CueandSignalDetectionModel/CostFunction}.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/CostFunction}
+c_{q}(s)=c_{q} \, s^{3}
+\end{equation}
+
+Given the receiver's response-strategy, the sender's payoff is given by equation~\ref{eq:CueandSignalDetectionModel/PayoffS}. We cannot obtain a closed form for this integral. However, we do not necessarily care about the total payoff to the sender, but more about the marginal payoff of amplifying. By examining the derivative of the payoff with respect to $s$, we can find out if a sender should signal more or less. Without a closed form for the total payoff, it might seem impossible to find an expression for the derivative. Luckily, another mathematical trick can be applied. Let us first `slice' the sender's payoff by not performing one of the integrals.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/SlicedPayoffS}
+P_{S}(s) = \displaystyle \int \tilde{P}_{S}(s) \; dP_{s}-c_{q}(s)
+\end{equation}
+
+Due to the fact that derivatives and integrals commute, we can change the derivative of the total payoff to an integral over the derivative of the sliced payoff. As seen in equation~\ref{eq:CueandSignalDetectionModel/DifferentialPayoffS}, this allows us to obtain a closed form solution for the marginal payoff of signalling. Here, $\alpha$ and $\beta$ are defined such that $t(P_{s})=\alpha+\beta \, P_{s}$.
+\begin{equation}
+\label{eq:CueandSignalDetectionModel/DifferentialPayoffS}
+\begin{array}{rcl}
+\frac{d}{ds} P_{S}(s) &=& \displaystyle \int \frac{d}{ds} \tilde{P}_{S}(s) \; dP_{s} - \frac{d}{ds} c_{q}(s)\\[3mm]
+&=& \displaystyle \frac{b \; \beta}{\sqrt{2 \pi} \sqrt{\sigma_{q}^{2} + \beta^2 \, \sigma_{s}^{2}}} \; e^{-\frac{(q-\alpha-s \beta)^{2}}{2(\sigma_{q}^{2}+\beta^{2} \sigma_{s}^{2})}} - 3 \, c_{q} \, s^2
+\end{array}
+\end{equation}
+
+\newpage
+
+
+\section{Full Results}
+\label{sec:Full Results}
+
+Assuming that the signalling equilibrium is stable, we can determine the level at which each type of sender will signal as a function of the costs. Figure~\ref{fig:Figure 3334} shows these levels for the high and the low quality sender, having set $b_{H}=b_{L}=1$.
+\begin{figure}[h]
+\captionsetup{width=380pt}
+\begin{center}
+\subfloat[Level of signalling for the high quality sender]{\label{fig:Figure 33.pdf}\includegraphics[scale=.6]{"Figure 33.pdf}}
+\hspace{4mm}
+\subfloat[Level of signalling for the low quality sender]{\label{fig:Figure 34.pdf}\includegraphics[scale=.6]{"Figure 34.pdf}}
+\caption{Levels of signalling as a function of the costs with Log[$K$]$=0$, $\sigma_{q}=1$ and $\sigma_{s}=1$, keeping $c_{H}<c_{L}$.}
+\label{fig:Figure 3334}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Signalling without a Cue}
+\label{sec:Signalling without a Cue}
+
+In this appendix, we will examine a simple version of handicap signalling. We will assume the sender has the ability to signal to the receiver, at a cost which is dependent on its quality. In particular, let the cost function of signalling for a high quality sender always be below the cost function of the low quality sender, $c_{H}(s)<c_{L}(s) \; \forall \; s$. The receiver does not have the ability to detect the quality of the sender directly, but observes the signal from the sender with some error. This error is assumed to follow a normal distribution with variance $\sigma^{2}_{s}$.
+\begin{equation}
+\label{eq:SignalDetectionModel/Normal}
+N(P_{s}, s, \sigma_{s}) = \frac{1}{\sqrt{2 \pi} \sigma_{s}} e^{-\frac{(P_{s}-s)^2}{2 \sigma_{s}^2}}
+\end{equation}
+
+Either the relative difference between $c_{H}$ and $c_{L}$ or $\sigma_{s}$ sets the scale in this model, which means we can fix one of these parameters. Let us set $\sigma_{s}=1$ and allow the cost functions to be the free parameters which determine the sender's incentive to signal to the receiver.
+
+Figure~\ref{fig:Figure 27.pdf} shows the perception-axis with two normal distributions representing a high and a low quality sender.
+
+\begin{figure}[!h]
+\captionsetup{width=300pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=.65]{"Figure 27.pdf}
+\caption{Model in equilibrium for Log[$K$]$=0$, $\sigma_{s}=1$, $c_{H}=0.10$ and $c_{L}=0.20$, showing the perception of a high quality sender (dotted) and a low quality sender (dashed), as well as the optimal threshold at $t=1.35$.}
+\label{fig:Figure 27.pdf}
+\end{center}
+\end{figure}
+
+Figure~\ref{fig:Figure 19.pdf} shows the extensive form of this model. After Nature has made the random choice between a high and a low quality sender, the sender decides on a level of signalling~$s$, incurring a cost which depends on its quality. This level is not directly observable to the receiver, as indicated by the dotted lines.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.65]{"Figure 19.pdf}
+\caption{Extensive form}
+\label{fig:Figure 19.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+As in the full model, the payoff to the receiver is obtained by integrating the normal distribution over the appropriate response-regions, $R_{G}$ and $R_{B}$. This is, now, a single integral over $P_{s}$.
+\begin{equation}
+\label{eq:SignalDetectionModel/PayoffR}
+\begin{array}{rcl}
+P_{R}(R_{G}) &=& p \; b_{TP} \displaystyle \int_{R_{G}} N(P_{s}, s_{H}, \sigma_{s}) \; dP_{s} +\\
+&&p \; b_{FN} \displaystyle \int_{R_{B}} N(P_{s}, s_{H}, \sigma_{s}) \; dP_{s} +\\
+&&(1-p) \; b_{FP} \displaystyle \int_{R_{G}} N(P_{s}, s_{L}, \sigma_{s}) \; dP_{s} +\\
+&&(1-p) \; b_{TN} \displaystyle \int_{R_{B}} N(P_{s}, s_{L}, \sigma_{s}) \; dP_{s}
+\end{array}
+\end{equation}
+
+Taking again $t=\partial R_{G}$ as the boundary of the region `good', we use differentiation under the integral sign to obtain equation~\ref{eq:SignalDetectionModel/DifferentialPayoffR}.
+\begin{equation}
+\label{eq:SignalDetectionModel/DifferentialPayoffR}
+\frac{d}{dt}P_{R}(t)= \frac{(1-p) \; (b_{TP}-b_{FN})}{\sqrt{2 \pi} \sigma_{s}} e^{-\frac{(s_{H}-t)^2}{2 \sigma_{s}^2}} - \frac{p \; (b_{TN}-b_{FP})}{\sqrt{2 \pi} \sigma_{s}} e^{-\frac{(s_{L}-t)^2}{2 \sigma_{s}^2}}
+\end{equation}
+
+The optimal threshold $t$ depends on the level of signalling by the high and the low quality sender.
+\begin{equation}
+\label{eq:SignalDetectionModel/Threshold}
+t=\frac{s_{H}+s_{L}}{2}-\frac{\sigma_{s}^2 \text{Log}[K]}{s_{H}-s_{L}}
+\end{equation}
+
+This threshold defines how the receiver should best responds to any observed level of signalling.
+\begin{equation}
+\label{eq:SignalDetectionModel/RG}
+R_{G} = \{P_{s} \in \mathbb{R} : P_{s}>t\}
+\end{equation}
+
+The payoff to the sender is given by the integral over $R_{G}$, subtracting the cost of signalling. Here, $b_{q} \in \{b_{H}, b_{L}\}$ and $c_{q} \in \{c_{H}, c_{L}\}$.
+\begin{equation}
+\label{eq:SignalDetectionModel/PayoffS}
+P_{S}(s) = b_{q} \displaystyle \int_{R_{G}} N(P_{s}, s, \sigma_{s}) \; dP_{s}-c_{q}(s)
+\end{equation}
+
+A general cost function can be defined via its Taylor-expansion, as in equation~\ref{eq:SignalDetectionModel/CostFunction}.
+\begin{equation}
+\label{eq:SignalDetectionModel/CostFunction}
+c(s)=\sum_{i=0}^{\infty} c_{i} \; s^{i}
+\end{equation}
+
+It makes sense for the cost function to start at zero and be increasing at an increasing rate. As such, let us take $c_{0}=c_{1}=0$ and $c_{i} \geq 0 \; \forall \; i$. The simplest of these functions is given in equation~\ref{eq:SignalDetectionModel/CostFunction2}.
+\begin{equation}
+\label{eq:SignalDetectionModel/CostFunction2}
+c_{q}(s)=c_{q} \, s^{2}
+\end{equation}
+
+By differentiating the sender's payoff, we obtain an expression for the marginal payoff of signalling. Equation~\ref{eq:SignalDetectionModel/DifferentialPayoffS} is used determine numerically the optimal level of signalling for the high and the low quality sender.
+\begin{equation}
+\label{eq:SignalDetectionModel/DifferentialPayoffS}
+\frac{d}{ds} P_{S}(s) = \frac{b_{q}}{\sqrt{2 \pi} \sigma_{s}} e^{-\frac{(s-t)^2}{2 \sigma_{s}^2}} - 2 \, c_{q} \, s
+\end{equation}
+
+An equilibrium of this model is reached when neither the high nor the low quality sender has an incentive to change its level of signalling, given the receiver's optimal strategy $R_{G}$. Before we turn to these calculations, let us examine equation~\ref{eq:SignalDetectionModel/DifferentialPayoffS} more carefully.
+
+At equilibrium, the marginal cost and the marginal benefit of signalling should equate. Therefore, the optimal level of signalling is not determined by the cost $c_{H}$ or $c_{L}$, but by the relative cost $\frac{c_{H}}{b_{H}}$ and $\frac{c_{L}}{b_{L}}$. Let us now define the ratio between these two relative costs, in equation~\ref{eq:SignalDetectionModel/RatioCost}.
+\begin{equation}
+\label{eq:SignalDetectionModel/RatioCost}
+r_{c} = \frac{c_{H}}{c_{L}} \frac{b_{L}}{b_{H}}
+\end{equation}
+
+Furthermore, at equilibrium, the marginal payoff of signalling for the high quality sender should be equal to the marginal payoff for the low quality sender, both of which are zero. The relative marginal benefit of signalling depends on the position of the threshold $t$. This can be seen in figure~\ref{fig:Figure 27.pdf}. Given the receiver's optimal strategy, the ratio between the marginal benefit of the high quality sender and the low quality sender is equal to $K$. This provides us with a simple, analytical expression for the ratio between the levels of signalling for the high and the low quality sender, i.e. $s_{L}=r \,s_{H}$ where $0 \leq r \leq 1$.
+\begin{equation}
+\label{eq:SignalDetectionModel/Ratio}
+r=r_{c} \, K
+\end{equation}
+
+Now that we know this ratio, we can reduce the two unknown variables $s_{H}$ and $s_{L}$ to a single unknown variable $s_{r}$. This allows us to visualise the costs and the benefits associated with signalling in a simple plot. Figure~\ref{fig:Figure 202122} shows these payoffs for various parameters.
+\begin{figure}[!h]
+\begin{center}
+\subfloat[Log($K$)$=0$]{\label{fig:Figure 20.pdf}\includegraphics[scale=.48]{"Figure 20.pdf}}
+\hspace{1mm}
+\subfloat[Log($K$)$=0.12$]{\label{fig:Figure 21.pdf}\includegraphics[scale=.48]{"Figure 21.pdf}}
+\hspace{1mm}
+\subfloat[Log($K$)$=0.28$]{\label{fig:Figure 22.pdf}\includegraphics[scale=.48]{"Figure 22.pdf}}
+\caption{Cost (dotted) and benefit (dashed) functions}
+\label{fig:Figure 202122}
+\end{center}
+\end{figure}
+
+What can be deduced from figure~\ref{fig:Figure 202122} is that, for some part of parameter-space, no signalling will occur. In particular, if Log[$K$] deviates too much from zero, the cost of signalling is higher than its benefit and neither high nor low quality sender will want to signal. If, however, Log[$K$] is close to zero, the signalling equilibrium is stable. In this case, the non-signalling equilibrium is also stable, giving two possible end-points for our model.
+
+Figure~\ref{fig:Figure 23.pdf} shows parameter-space for our two combined parameters Log[$K$] and $r_{c}$. The fact that signalling is not a stable equilibrium whenever Log[$K$] deviates slightly from zero is strange. It is a result of the way the benefit function changes as Log[$K$] changes. In particular, the marginal benefit of signalling is equal to the height of the normal distribution at the threshold $t$. For values of Log[$K$] which are not close to zero, this threshold blows up to either $\infty$ or $-\infty$ whenever the level of signalling is low. This can be seen clearly in equation~\ref{eq:SignalDetectionModel/Threshold}. Consequently, with a very high or a very low threshold, the benefit of signalling becomes virtually zero. The results is that signalling is not stable for a wide range of parameters in this model. This should be taken as an artefact of the model, however, caused by the unrealistic assumption that the level of signalling is the only source of information on which the receiver can base its assessment of quality. In our more realistic model which combines signalling with a quality cue, this problem is overcome.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 23.pdf}
+\caption{Equilibria}
+\label{fig:Figure 23.pdf}
+\end{center}
+\end{figure}
+
+Figure~\ref{fig:Figure 23.pdf} is obtained via numerical estimations and the precise zones for which signalling does or does not occur are not completely given by parameters Log[$K$] and $r_{c}$. The zones change slightly for different values of $\frac{c_{H}}{b_{H}}$ and $\frac{c_{L}}{b_{L}}$, but the general shape of the zones remains the same. The reason for using $r_{c}$ as a parameter is to conform to the results of the full model.
+
+Assuming that the signalling equilibrium is stable, we can determine the level at which each type of sender will signal as a function of the costs. Figure~\ref{fig:Figure 2425} shows these levels for the high and the low quality sender, having set $b_{H}=b_{L}=1$.
+\begin{figure}[h]
+\captionsetup{width=380pt}
+\begin{center}
+\subfloat[Level of signalling for the high quality sender]{\label{fig:Figure 24.pdf}\includegraphics[scale=.58]{"Figure 24.pdf}}
+\hspace{10mm}
+\subfloat[Level of signalling for the low quality sender]{\label{fig:Figure 25.pdf}\includegraphics[scale=.58]{"Figure 25.pdf}}
+\caption{Levels of signalling as a function of the cost with Log[$K$]$=0$ and $\sigma_{s}=1$, keeping $c_{H}<c_{L}$.}
+\label{fig:Figure 2425}
+\end{center}
+\end{figure}
+
+\newpage
+
+It may also be interesting to plot this same information in a two-dimensional figure. In this case, we can include the information content of the signal as well. This is done in figure~\ref{fig:Figure 26.pdf}.
+\begin{figure}[!h]
+\captionsetup{width=300pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 26.pdf}
+\caption{Level of signalling for the high quality sender (thick) and low quality sender (dashed) as a function of the relative cost, as well as the information content (dotted), when $c_{L}=1$.}
+\label{fig:Figure 26.pdf}
+\end{center}
+\end{figure}
+
+In field crickets, \textit{Gryilus lineaticeps}, male chirp rate, duration, and amplitude all influence female mate choice; females prefer higher chirp rates, longer chirp durations, and higher chirp amplitudes~\cite{Wagner1996}. The production of calling songs is shown to be energetically costly. During the singing, male crickets significantly increased oxygen consumption~\cite{Hoback1997}. The ability to chirp is also dependent on the condition of the male. In an experiment, males on a high-nutrition feeding regime both called more frequently and called at higher chirp rates then the control group~\cite{Wagner1999}. As the weight of the well-fed males did not increase compared to the control group, this suggested that males invest any excess energy above their basic maintenance requirements in the production of call types that increase their attractiveness to females. Therefore, chirping entails a differential, condition-dependent cost and it may be suggested that the display honestly signals foraging ability as well as current condition. Another cost of chirping has been found. Male crickets are often attacked by parasitoid tachinid flies, \textit{Ormia ochracea}, that locate males through their calls. Female flies deposit larvae on crickets which burrow into and feed on them, killing the cricket. Chirp rate, duration, and amplitude all influenced the probability of fly attraction, creating an additional cost to the singing~\cite{Wagner1996}. Well-fed, high quality male crickets take on these risks, chirp more and attract more females.
+
+
+\end{document}

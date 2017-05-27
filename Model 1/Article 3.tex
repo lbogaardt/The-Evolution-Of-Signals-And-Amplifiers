@@ -1,0 +1,833 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath,graphicx,fullpage,microtype,hyperref,subfig,hypcap,amsfonts,parskip,multirow,titlesec}
+
+\titlespacing\section{0pt}{20pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+\titlespacing\subsection{0pt}{16pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+
+\widowpenalty=2000
+\clubpenalty=2000
+\hyphenpenalty=400
+\interfootnotelinepenalty=400
+\DisableLigatures{encoding=*,family=*}
+\numberwithin{equation}{section}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+\renewcommand*{\arraystretch}{1.4}
+
+\begin{document}
+
+\label{sec:Cover Page}
+\addcontentsline{toc}{section}{Cover Page}
+
+\href{http://www.cam.ac.uk}{University of Cambridge} \hfill \href{http://www.journals.elsevier.com}{Elsevier}\\
+\href{http://www.bogaardtresearch.tk}{Laurens Bogaardt} \hfill \href{http://www.journals.elsevier.com/journal-of-theoretical-biology}{Journal of Theoretical Biology}\\
+\href{mailto:lb591@cam.ac.uk}{lb591@cam.ac.uk} \hfill 14-10-2014\\
+
+\vspace{5cm}
+
+\begin{center}
+\begin{LARGE}
+\begin{bf}
+Observable Amplification and Evolutionary Game Theory
+\end{bf}
+\end{LARGE}
+\end{center}
+
+\vfill
+
+\begin{center}
+\begin{minipage}[t]{0.72\textwidth}
+\begin{bf}
+Abstract
+\end{bf}
+\vspace{.2cm}
+\newline
+In this paper, ...
+\end{minipage}
+\end{center}
+
+\vspace{.6cm}
+
+\begin{center}
+\begin{minipage}[t]{0.72\textwidth}
+\begin{bf}
+Acknowledgements
+\end{bf}
+\vspace{.2cm}
+\newline
+The author wishes to thank ...
+\end{minipage}
+\end{center}
+
+\vspace{.6cm}
+
+\newpage
+
+
+\phantomsection
+\label{sec:Contents}
+\addcontentsline{toc}{section}{Contents}
+\renewcommand{\contentsname}{Contents\\} 
+
+\tableofcontents
+
+\newpage
+
+
+\section{Introduction}
+\label{sec:Introduction}
+
+Within sexual selection, the evolution of male displays is driven by female mating preferences. The cost that the display confers on male viability is overcompensated for by the increase in the reproductive success of displaying males. In 1989, Hasson presented a population genetic model which showed that male displays can evolve as a consequence of female mating preferences, even though there was no direct choice for those particular displays~\cite{Hasson1989}.
+
+This may occur when females initially base their preferences on a cue that is correlated with some quality-characteristic of the male, such as, for example, viability. Females often base mating decisions on information they obtain about the male's genetic quality, health, foraging ability or other qualities~\cite{Jennions1997}. A cue which correlates with any of these attributes can provide such information. Hasson's idea is that a particular display, called an amplifier, may reduce the error in the perception of the cue by females and improve the correlation between the perceived cue and male quality. An amplifier can be, for example, a pattern or a colour which helps the female's perception of the cue, increasing the amount of information she obtains. This will, then, allow high quality males to benefit more from their high quality cue. On the other hand, a low quality male may do better not to amplify his cue at all. He stands to gain by concealing his bad quality. Via its benefits to proud males with a high quality, sexual selection can lead to the fixation of such amplifiers.
+
+Hasson showed that the evolution of amplifiers leads to conditions favouring genetic modifiers which decrease the amplifier's expression in the less viable males~\cite{Hasson1989}. In his original article, Hasson goes on to verbally suggests that this conditional expression may cause selection to favour the evolution of female choice based on the amplifying display itself. Due to the direct correlation of the amplifier with the male's quality, the observation of an amplifier provides information about the male. However, Hasson did not model this step. In another article, a two-dimensional signal detection model was presented which did just that~\cite{Bogaardt2014}. In this article, evolutionary game theory is used to model such observable amplification.
+
+Hasson's original article discussed amplifiers in terms of sexual selection. Female choice is not the only selection mechanism conceivable which may be responsible for the evolution of amplifiers. Amplifiers can emerge in any communication game in which one player wishes to obtain information about another player. Situations other than sexual selection in which animal communication is important are, for example, parent-offspring conflicts, predator-prey interactions or intra-specific rivalry. 
+
+Due to its importance in communication systems, amplifiers may not even be restricted to the animal kingdom. In economics, too, information plays a vital role. There are more similarities between economics and zoology. For example, as a modelling technique, game theory is used in economics too. Game theory is ideal for understanding the interactions between players with different objectives. Handicap signalling was first described in Spence's signalling model as a description of information transfer in markets~\cite{Spence1973}. Within biology, it was independently suggested by Zahavi, using verbal arguments, and modelled by Grafen~\cite{Zahavi1975, Zahavi1977, Grafen1990, Grafen1990a}. Error-prone quality cues, as well, play a role in economics where asymmetric information may lead businesses to invest a lot in obtaining as much information as possible about a particular market or about a rival. As such, it is expected that one can identify the equivalent of an~amplifier~in~economics.
+
+One possible example would be the year-reports businesses produce to give investors an idea of the `health' of their company. A clear and concise style of writing in such reports would amplify the true health of the company, while an elaborate and confusing style of writing may be used as a trick to obscure negative results. Consequently, it can be expected that the style of writing of the year-reports itself says a lot about a company. Another example is of a job seeker. Someone with a full CV provides a lot of information about their experience and abilities. On the other hand, a person with gaps in their CV may be seen to be hiding something, concealing their lack of quality. Some creative insights are needed to further establish the link between amplifiers and economic theory.
+
+\newpage
+
+
+\section{Model and Assumptions}
+\label{sec:Model and Assumptions}
+
+In order to explore the effect of observable amplification, let us start with Hasson's original model. We will focus on the interaction between two individuals, a sender and a receiver. These two players are drawn at random from a large population. The sender may vary in some characteristic, which we shall call its quality $q$. For simplicity, let there be only two possible levels of quality, $q\in\{H, L\}$, $H$ for \textit{high}, $L$ for \textit{low}. The proportion of senders with high quality is $0<p<1$, whereas the proportion of low quality senders is $1-p$.
+
+The receiver stands to gain by correctly identifying the quality of the sender and by responding appropriately. Let us assume there are two possible responses. If the receiver assigns $G$, for \textit{good}, to a high quality sender, or $B$, for \textit{bad}, to a low quality sender, it obtains a payoff equal to $1$. If it erroneously assigns $G$ to a low quality sender, or $B$ to a high quality one, it obtains a payoff of zero. The sender always stands to gain by eliciting the favourable response $G$ from the receiver. In this case, it gets a payoff equal to $1$. If the response from the receiver is $B$, the sender obtains a payoff of zero.
+
+The receiver, however, cannot assess the sender's quality with complete accuracy. Instead, it must rely on an error-prone cue $q_{R} \in \{H_{R}, L_{R}\}$, which may take two possible values: $H_{R}$ for the perception of a \textit{high quality} sender, $L_{R}$ for the perception of a \textit{low quality} sender. The subscript `R', in this case, denotes that the perception of quality is done by the \textit{receiver}. While the cue typically takes value $H_{R}$ when the sender is of high quality, and $L_{R}$ when the sender is of low quality, the receiver sometimes observes $L_{R}$ for a high quality sender and $H_{R}$ for a low quality one. Let $0<e_{2}<\frac{1}{2}$ be the probability of error in the assessment of quality, so that the receiver perceives a high quality sender as $H_{R}$ with probability $1-e_{2}$ and as $L_{R}$ with probability $e_{2}$. We will assume symmetrical errors and, therefore, the opposite probabilities apply to a cue from a low quality sender. The parameter $e_{2}$ is a measure of how precisely the receiver can evaluate the quality of the sender.
+
+We assume that the sender has some influence over the accuracy with which the receiver assesses its quality. To be more precise, the sender may choose one of two possible actions: $A$ for \textit{amplify} and $K$ for \textit{conceal}. If the sender amplifies its quality cue, by choosing action $A$, the error in the receiver's assessment of quality reduces to $0<e_{1}<\frac{1}{2}$, where $e_{1}<e_{2}$. If the sender conceals its quality, by choosing action $K$, the error stays equal to $e_{2}$. Amplification, thus, allows the receiver to evaluate the sender's quality more precisely, by ensuring that the perceived cue correlates more strongly with the actual quality of the sender. By contrast, concealment leads to a higher probability of error in the perception of quality. For simplicity, we will assume that amplification and concealment are cost-free. However, as Hasson showed, amplifiers can evolve even when there is a cost associated with them.
+
+Let us now extend Hasson's original model and allow for the possibility that the receiver can, at least to some extent, detect the use of the amplifier by the sender. Besides the information from the quality cue, the receiver now obtains a second cue, which may take two possible values: $A_{R}$ suggesting the sender has used an amplifier or $K_{R}$ suggesting there was no amplification of the quality cue. The perception of this choice is error-prone too. This means the receiver sometimes observes $K_{R}$ for an amplifying sender and $A_{R}$ for a concealing sender. Let $0<e_{3}<\frac{1}{2}$ be the error in the assessment of amplification, so that the receiver perceives an amplifying sender as $A_{R}$ with probability $1-e_{3}$ and as $K_{R}$ with probability $e_{3}$. The opposite probabilities apply to the perception of a sender that conceals its quality. The parameter $e_{3}$ is a measure of how precisely the receiver can evaluate whether a sender has chosen to provide information or to hide it. This model reduces to the previous model when $e_{3} = \frac{1}{2}$ because under these circumstances, the receiver effectively cannot tell whether or not the sender has amplified its quality cue.
+
+An extensive form description of our full model is presented in appendix~\ref{sec:Extensive Form}. This model reduces to the simpler model described in Hasson's original paper when $e_{3} = \frac{1}{2}$, because, under these circumstances, the receiver obtains no information about whether the sender has or has not employed the amplifying display.
+
+\newpage
+
+
+\section{Methods}
+\label{sec:Methods}
+
+We assume the sender is aware of its own quality and can choose whether or not to amplify, action $A$ or action $K$, based on this information. It follows that the sender has strategies specifying two actions: the first to be employed when the sender is of high quality, the second action to be employed in the case of low quality. The receiver can choose $G$ or $B$ based on both its assessment of the sender's quality, as well as on its assessment of the sender's use of the amplifier. This means their strategies specify four actions; the first is employed when the receiver observes $H_{R}$ and $A_{R}$, the second when $H_{R}$ and $K_{R}$ are perceived, the third after $L_{R}$ and $A_{R}$, and, finally, after $L_{R}$ and $K_{R}$.
+
+The payoff that each player obtains depends on the strategy it chooses and on the strategy of the other player. For both players, some strategies will never do better than other strategies, regardless of the other player's actions. This allows us to remove these strictly and weakly dominated strategies from the list of possibilities under consideration. After the removal of these strategies, some other possibilities may, in turn, become dominated, so these, too, can be eliminated from consideration. This iterative process leaves us with only two undominated strategies for the sender and six strategies for the receiver.
+
+In all cases, it pays a high quality sender to amplify its quality cue. By doing so, it reduces the probability of being accidentally confused with a low quality sender. It also `sets the bar' by making amplification a thing high quality senders do. As such, it might become something low quality senders gain from doing as well. The only two strategies which are undominated are those in which the high quality sender amplifies and the low quality sender either does or does not.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{cc}
+\text{AA} & \text{AK}
+\end{tabular}
+\end{center}
+\caption{Sender's remaining strategies}
+\label{tab:CueGamewithObservableAmplification/StrategiesS}
+\end{table}
+
+The receiver typically responds with $G$ when it perceives a sender as of high quality and amplifying, and responds $B$ in the opposite case. Whether the receiver chooses $G$ or $B$ in case of a low quality, amplifying sender or a high quality, concealing sender, depends on the model's parameters and on the strategy of the sender.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{cccccc}
+\text{GGGG} & \text{GGGB} & \text{GGBB} & \text{GBGB} & \text{GBBB} & \text{BBBB}
+\end{tabular}
+\end{center}
+\caption{Receiver's remaining strategies}
+\label{tab:CueGamewithObservableAmplification/StrategiesR}
+\end{table}
+
+The fact that only a subset of all possible strategies for the players are undominated makes things more simple, as we will only need to take these undominated strategies into account when determining the best responses for each player to each of the other player's strategies. This is done by examining the expected payoffs given some information about the other player. Without any prior information, the receiver knows the probability of dealing with a high quality sender is $p$.
+
+This probability changes when the receiver gets a chance to examine the sender properly. It will, then, observe a quality cue which partially informs the receiver about the sender's quality. It will also be able to assess whether the sender has amplified or not. Due to the fact that the payoffs in this model are either $1$ or zero, the expected payoff to the receiver when it responds $G$ is equal to the conditional probability that the sender is of high quality. When the receiver responds $B$, the expected payoff is equal to the conditional probability that the sender is of low quality. These values are listed in table~\ref{tab:CueGamewithObservableAmplification/ConditionalPayoffsR}, along with the conditions under which $G$ yields a greater payoff that $B$.
+
+\begin{table}[h]
+\setlength{\tabcolsep}{.45em}
+\renewcommand{\arraystretch}{1.46}
+\begin{center}
+\begin{tabular}{lcccccrcc}
+$P_{R}(G|H_{R},A_{R},AA)$ & $=$ \hspace{1mm} & & & & \hspace{1mm} $=$ & $P_{R}(B|H_{R},A_{R},AA)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{1}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(1-e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$} &
+\vspace{1mm}\\
+$P_{R}(G|H_{R},K_{R},AA)$ & $=$ & & & & $=$ & $P_{R}(B|H_{R},K_{R},AA)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{1}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(1-e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$} &
+\vspace{1mm}\\
+$P_{R}(G|L_{R},A_{R},AA)$ & $=$ & & & & $=$ & $P_{R}(B|L_{R},A_{R},AA)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$1-e_{1}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(1-e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$} &
+\vspace{1mm}\\
+$P_{R}(G|L_{R},K_{R},AA)$ & $=$ & & & & $=$ & $P_{R}(B|L_{R},K_{R},AA)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$1-e_{1}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(1-e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$} &
+\vspace{1mm}\\
+$P_{R}(G|H_{R},A_{R},AK)$ & $=$ & & & & $=$ & $P_{R}(B|H_{R},A_{R},AK)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{3}<f_{8}(p,e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(1-e_{1})(1-e_{3})}{p(1-e_{1})(1-e_{3})+(1-p)(e_{2})(e_{3})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(e_{2})(e_{3})}{p(1-e_{1})(1-e_{3})+(1-p)(e_{2})(e_{3})}$} &
+\vspace{1mm}\\
+$P_{R}(G|H_{R},K_{R},AK)$ & $=$ & & & & $=$ & $P_{R}(B|H_{R},K_{R},AK)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$1-e_{3}<f_{8}(p,e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(1-e_{1})(e_{3})}{p(1-e_{1})(e_{3})+(1-p)(e_{2})(1-e_{3})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(e_{2})(1-e_{3})}{p(1-e_{1})(e_{3})+(1-p)(e_{2})(1-e_{3})}$} &
+\vspace{1mm}\\
+$P_{R}(G|L_{R},A_{R},AK)$ & $=$ & & & & $=$ & $P_{R}(B|L_{R},A_{R},AK)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{3}<f_{7}(p,e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(e_{1})(1-e_{3})}{p(e_{1})(1-e_{3})+(1-p)(1-e_{2})(e_{3})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(1-e_{2})(e_{3})}{p(e_{1})(1-e_{3})+(1-p)(1-e_{2})(e_{3})}$} &
+\vspace{1mm}\\
+$P_{R}(G|L_{R},K_{R},AK)$ & $=$ & & & & $=$ & $P_{R}(B|L_{R},K_{R},AK)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$1-e_{3}<f_{7}(p,e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(e_{1})(e_{3})}{p(e_{1})(e_{3})+(1-p)(1-e_{2})(1-e_{3})}$} & $>$ & \multicolumn{3}{l}{$\frac{(1-p)(1-e_{2})(1-e_{3})}{p(e_{1})(e_{3})+(1-p)(1-e_{2})(1-e_{3})}$} &
+\end{tabular}
+\end{center}
+\caption{Receiver's expected payoffs}
+\label{tab:CueGamewithObservableAmplification/ConditionalPayoffsR}
+\end{table}
+
+From the conditions listed in table~\ref{tab:CueGamewithObservableAmplification/ConditionalPayoffsR}, we can divide parameter-space into regions characterised by different best responses for the receiver. Some of these conditions result in long expressions, which are given in equation~\ref{eq:f7andf8}. These expressions describes two of the boundaries of the regions in parameter-space which influence the receiver's behaviour.
+\begin{subequations}
+\label{eq:f7andf8}
+\begin{gather}
+f_{7}(p,e_{1},e_{2})=\frac{p(e_{1})}{p(e_{1})+(1-p)(1-e_{2})}\\
+f_{8}(p,e_{1},e_{2})=\frac{p(1-e_{1})}{p(1-e_{1})+(1-p)e_{2}}
+\end{gather}
+\end{subequations}
+
+To find out what strategy the sender will employ, it is necessary to find out what their best response is to each of the receiver's six strategies. The expected payoffs to the sender are given in table~\ref{tab:CueGamewithObservableAmplification/ConditionalPayoffsS}, along with the conditions under which $A$ yields a higher payoff than $K$. For example, if the receiver plays its $GGBB$ strategy, the sender will get the favourable response $G$ if the receiver perceives it as $H_{R}$. More intuitively, this means the receiver only pays attention to the quality cue, and judges the sender on the basis of this, while it completely ignores the use of the amplifier. The probability of a favourable response for the sender depends on the quality of the sender, but also on whether the sender has amplified its cue message. As already discussed by Hasson, the sender does best to amplify only if it is of high quality~\cite{Hasson1989}. A low quality sender would prefer to hide information about its quality and, therefore, chooses not to amplify. The best response for the sender to $GGBB$ is, therefore, $AK$.
+
+\begin{table}[h]
+\begin{center}
+\setlength{\tabcolsep}{.45em}
+\begin{tabular}{lcccccrcc}
+$P_{S}(A|H,GGGG)$ & $=$ & $1$ & $=$ & $1$ & = & $P_{S}(K|H,GGGG)$ & for & any value\\
+$P_{S}(A|L,GGGG)$ & $=$ & $1$ & $=$ & $1$ & = & $P_{S}(K|L,GGGG)$ & for & any value\\
+$P_{S}(A|H,GGGB)$ & $=$ & \hspace{10mm} & & \hspace{10mm} & $=$ & $P_{S}(K|H,GGGB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{ any value}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$1-(e_{1})(e_{3})$} & $>$ & \multicolumn{3}{l}{$1-(e_{2})(1-e_{3})$} &
+\vspace{1mm}\\
+$P_{S}(A|L,GGGB)$ & $=$ & & & & $=$ & $P_{S}(K|L,GGGB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{3}<f_{6}(e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$1-(1-e_{1})(e_{3})$} & $>$ & \multicolumn{3}{l}{$1-(1-e_{2})(1-e_{3})$} &
+\vspace{1mm}\\
+$P_{S}(A|H,GGBB)$ & $=$ & $1-e_{1}$ & $>$ & $1-e_{2}$ & = & $P_{S}(K|H,GGBB)$ & for & any value\\
+$P_{S}(A|L,GGBB)$ & $=$ & $e_{1}$ & $>$ & $e_{2}$ & = & $P_{S}(K|L,GGBB)$ & for & no value\\
+$P_{S}(A|H,GBGB)$ & $=$ & $1-e_{3}$ & $>$ & $e_{3}$ & = & $P_{S}(K|H,GBGB)$ & for & any value\\
+$P_{S}(A|L,GBGB)$ & $=$ & $1-e_{3}$ & $>$ & $e_{3}$ & = & $P_{S}(K|L,GBGB)$ & for & any value\\
+$P_{S}(A|H,GBBB)$ & $=$ & & & & $=$ & $P_{S}(K|H,GBBB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{ any value}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$(1-e_{1})(1-e_{3})$} & $>$ & \multicolumn{3}{l}{$(1-e_{2})(e_{3})$} &
+\vspace{1mm}\\
+$P_{S}(A|L,GBBB)$ & $=$ & & & & $=$ & $P_{S}(K|L,GBBB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{3}<f_{5}(e_{1},e_{2})$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$(e_{1})(1-e_{3})$} & $>$ & \multicolumn{3}{l}{$(e_{2})(e_{3})$} &
+\vspace{1mm}\\
+$P_{S}(A|H,BBBB)$ & $=$ & $0$ & $=$ & $0$ & = & $P_{S}(K|H,BBBB)$ & for & any value\\
+$P_{S}(A|L,BBBB)$ & $=$ & $0$ & $=$ & $0$ & = & $P_{S}(K|L,BBBB)$ & for & any value
+\end{tabular}
+\end{center}
+\caption{Sender's expected payoffs}
+\label{tab:CueGamewithObservableAmplification/ConditionalPayoffsS}
+\end{table}
+
+The expressions in equation~\ref{eq:f5andf6} define two boundaries of the regions in parameter-space which influence the sender's behaviour.
+\begin{subequations}
+\label{eq:f5andf6}
+\begin{gather}
+f_{5}(e_{1},e_{2})=\frac{e_{1}}{e_{1}+e_{2}}\\
+f_{6}(e_{1},e_{2})=\frac{(1-e_{2})}{(1-e_{1})+(1-e_{2})}
+\end{gather}
+\end{subequations}
+
+The values of the parameters determine the best responses of the players. Firstly, we can partition the parameter-space of the model into three regions according to the best responses of the sender.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region S1: & $e_{3}<f_{5}(e_{1},e_{2})<f_{6}(e_{1},e_{2})$\\
+Region S2: & $f_{5}(e_{1},e_{2})<e_{3}<f_{6}(e_{1},e_{2})$\\
+Region S3: & $f_{5}(e_{1},e_{2})<f_{6}(e_{1},e_{2})<e_{3}$
+\end{tabular}
+\end{center}
+\caption{Sender's regions}
+\label{tab:CueGamewithObservableAmplification/RegionsS}
+\end{table}
+
+In our model, the receiver's best response to the sender's strategy $AA$ depends on one set of conditions on the parameters, while the best response to the sender's $AK$ strategy depends on a different set of conditions. We will need to divide parameter-space according to the conditions under both these strategies. Let us first split the parameters into three main parts, depending on how the value of $p$ relates to the smallest error value $e_{1}$. These determine the best response to the sender's strategy $AA$. The most interesting of these regions if $R_{a}2$. In either of the other two cases, the errors in perception are so large that it does not benefit the receiver to pay attention to any of the sender's cues.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region $R_{a}1$: & $p<e_{1}<1-e_{1}$\\
+Region $R_{a}2$: & $e_{1}<p<1-e_{1}$\\
+Region $R_{a}3$: & $e_{1}<1-e_{1}<p$
+\end{tabular}
+\end{center}
+\caption{Receiver's regions}
+\label{tab:CueGamewithObservableAmplification/RegionsRa}
+\end{table}
+
+\vspace{2mm}
+
+Secondarily, let us split all of parameter-space into six additional regions, depending on the value of $e_{3}$ relative to the errors in quality perception $e_{1}$ and $e_{2}$ and to $p$. These determine the best response to the sender's strategy $AK$. The two different ways of partitioning parameter-space are complementary and not necessarily incompatible, although the x's in table~\ref{tab:CueGamewithObservableAmplification/BestResponseR} show the regions with zero overlap.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region $R_{b}1$: & $f_{7}(p,e_{1},e_{2})<f_{8}(p,e_{1},e_{2})<e_{3}<1-e_{3}$\\
+Region $R_{b}2$: & $f_{7}(p,e_{1},e_{2})<e_{3}<f_{8}(p,e_{1},e_{2})<1-e_{3}$\\
+Region $R_{b}3$: & $f_{7}(p,e_{1},e_{2})<e_{3}<1-e_{3}<f_{8}(p,e_{1},e_{2})$\\
+Region $R_{b}4$: & $e_{3}<f_{7}(p,e_{1},e_{2})<f_{8}(p,e_{1},e_{2})<1-e_{3}$\\
+Region $R_{b}5$: & $e_{3}<f_{7}(p,e_{1},e_{2})<1-e_{3}<f_{8}(p,e_{1},e_{2})$\\
+Region $R_{b}6$: & $e_{3}<1-e_{3}<f_{7}(p,e_{1},e_{2})<f_{8}(p,e_{1},e_{2})$
+\end{tabular}
+\end{center}
+\caption{Receiver's regions}
+\label{tab:CueGamewithObservableAmplification/RegionsRb}
+\end{table}
+
+\vspace{2mm}
+
+The best responses of the sender depend on the strategy chosen by the receiver. It is possible that even a low quality sender does best to amplify its cue, playing $AA$. This can be seen in table~\ref{tab:CueGamewithObservableAmplification/BestResponseS}. There is a neutrality between the choice of $AA$ and $AK$ if the receiver plays a strategy which does not take the sender's actions into account.
+
+\begin{table}[h]
+\renewcommand*{\arraystretch}{1.35}
+\begin{center}
+\begin{tabular}{lcccccc}
+ & GGGG & GGGB & GGBB & GBGB & GBBB & BBBB\\
+Region S1: & AA \& AK & AA & AK & AA & AA & AA \& AK\\
+Region S2: & AA \& AK & AA & AK & AA & AK & AA \& AK\\
+Region S3: & AA \& AK & AK & AK & AA & AK & AA \& AK
+\end{tabular}
+\end{center}
+\caption{Sender's best response}
+\label{tab:CueGamewithObservableAmplification/BestResponseS}
+\end{table}
+
+\vspace{2mm}
+
+Table~\ref{tab:CueGamewithObservableAmplification/BestResponseR} gives the best responses for the receiver, where an `x' indicates that two regions of parameter-space are mutually exclusive and have no overlap.
+
+\begin{table}[h]
+\renewcommand*{\arraystretch}{1.35}
+\begin{center}
+\begin{tabular}{lccc}
+ & Region $R_{a}1$ & Region $R_{a}2$ & Region $R_{a}3$\\
+\multirow{2}{*}{Region $R_{b}1$:} & AA: BBBB & AA: GGBB & \multirow{2}{*}{x}\\
+& AK: BBBB & AK: BBBB &\\
+\multirow{2}{*}{Region $R_{b}2$:} & AA: BBBB & AA: GGBB & \multirow{2}{*}{x}\\
+& AK: GBBB & AK: GBBB &\\
+\multirow{2}{*}{Region $R_{b}3$:} & AA: BBBB & AA: GGBB & \multirow{2}{*}{x}\\
+& AK: GGBB & AK: GGBB &\\
+\multirow{2}{*}{Region $R_{b}4$:} & AA: BBBB & AA: GGBB & AA: GGGG\\
+& AK: GBGB & AK: GBGB & AK: GBGB\\
+\multirow{2}{*}{Region $R_{b}5$:} & AA: BBBB & AA: GGBB & AA: GGGG\\
+& AK: GGGB & AK: GGGB & AK: GGGB\\
+\multirow{2}{*}{Region $R_{b}6$:} & AA: BBBB & AA: GGBB & AA: GGGG\\
+& AK: GGGG & AK: GGGG & AK: GGGG
+\end{tabular}
+\end{center}
+\caption{Receiver's best response}
+\label{tab:CueGamewithObservableAmplification/BestResponseR}
+\end{table}
+
+The find out what final result is predicted by our model, we need to combine the behaviours of the sender and the receiver. We will assume that animals optimise their payoffs, which will lead them to the Nash equilibrium of the game. An equilibrium occurs when the strategy of the sender is a best response to the strategy of the receiver, while at the same time the receiver's strategy is a best response to the sender's.
+
+It is important, however, to keep in mind that the model need not always yield a pure-strategy equilibrium. Players might instead do best to adopt mixed strategies. This can be interpreted as one player playing a combination of pure strategies with some probability, or as a population of players in which a particular proportion plays a certain strategy. A stable mixed equilibrium always occurs when the best responses of the two players form a limit cycle. Assuming a small amount of mutation between strategies, the dynamics of phase-space lead to the central point of the limit cycle, which is the stable equilibrium of the model. Figure~\ref{fig:Figure 67} in appendix~\ref{sec:Full Methods} depicts the stable limit cycles of this model.
+
+One must, however, investigate whether these limit cycles are, in fact, stable against invasion by a mutant. To do so, one needs to determine the proportions of players which adopt each of the strategies. These proportions are given as a function of the model's parameters in equations~\ref{eq:rMGGGB}~to~\ref{eq:rMGBGB} in appendix~\ref{sec:Full Methods}. Using these proportions, we can see for which values of the model's parameters these mixed equilibria actually occur and calculate the expected payoff at these points. The mixed equilibrium is stable if the payoffs of all alternative strategies are lower.
+
+\newpage
+
+
+\section{Results}
+\label{sec:Results}
+
+The predicted equilibrium behaviour of the model within region $R_{a}2$ is presented in table~\ref{tab:CueGamewithObservableAmplification/EquilibriaRa2}. The predicted equilibrium behaviour within regions $R_{a}1$ and $R_{a}3$ are given in appendix~\ref{sec:Full Results}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & Region S1 & Region S2 & Region S3\\
+Region $R_{b}1$: & x & (AK, BBBB) & (AK, BBBB)\\
+Region $R_{b}2$: & $\text{M}_{\text{GBBB}}$ & (AK, GBBB) & (AK, GBBB)\\
+Region $R_{b}3$: & (AK, GGBB) & (AK, GGBB) & (AK, GGBB)\\
+Region $R_{b}4_{a}$: & $\text{M}_{\text{GBBB}}$ & $\text{M}_{\text{GBGB}}$ & x\\
+Region $R_{b}4_{b}$: & $\text{M}_{\text{GGGB}}$ & $\text{M}_{\text{GGGB}}$ & x\\
+Region $R_{b}5$: & $\text{M}_{\text{GGGB}}$ & $\text{M}_{\text{GGGB}}$ & (AK, GGGB)\\
+Region $R_{b}6$: & x& x & (AK, GGGG)
+\end{tabular}
+\end{center}
+\caption{Equilibria within Region $R_{a}2$}
+\label{tab:CueGamewithObservableAmplification/EquilibriaRa2}
+\end{table}
+
+The description of which strategies play a role in the three possible mixed equilibria are given in equation~\ref{eq:MixedNames}. These names have no particular meaning, other than that they list the strategy which is unique to that particular mixed equilibrium. Figure~\ref{fig:Figure 67} gives a representation of phase-space which shows these stable limit cycles.
+\begin{subequations}
+\label{eq:MixedNames}
+\begin{gather}
+\text{M}_{\text{GGGB}}= \{\{ \text{AA}, \text{AK}\}, \{\text{GGBB}, \text{GGGB}\}\}\\
+\text{M}_{\text{GBBB}}= \{\{ \text{AA}, \text{AK}\}, \{\text{GGBB}, \text{GBBB}\}\}\\
+\text{M}_{\text{GBGB}}= \{\{ \text{AA}, \text{AK}\}, \{\text{GBGB}, \text{GBBB}\}\}
+\end{gather}
+\end{subequations}
+
+It turns out that the model yields a single stable equilibrium for any given set of parameter values. However, as these values change, so too does the nature of the equilibrium. Figure~\ref{fig:Figure 8910} summarises graphically how the model outcome alters as $e_{3}$, the error in assessment of amplification, decreases from a maximum value of $\frac{1}{2}$ to a limit of zero. When $e_{3}=\frac{1}{2}$, the error is so great that the receiver obtains no information at all about the sender's use of the amplifying display. In this case, the model reduces to the simpler case described by Hasson, and modelled in appendix~\ref{sec:Unobservable Amplification}. For this simpler model, we can see that, when $p$ does not take too extreme a value and the model is within region $R_{a}2$, the sender will amplify conditionally on its quality, playing $AK$, and the receiver judges the sender's quality based on the quality cue its obtains, playing $GGBB$. This ($AK$,~$GGBB$)-equilibrium will always be the starting point for animal communication in our model.
+
+\begin{figure}[h]
+\captionsetup{width=440pt}
+\subfloat[high $p$]{\label{fig:Figure 8.pdf}\includegraphics[scale=.55]{"Figure 8.pdf}}
+\hfill
+\subfloat[moderate $p$]{\label{fig:Figure 9.pdf}\includegraphics[scale=.55]{"Figure 9.pdf}}\\
+\subfloat[low $p$]{\label{fig:Figure 10.pdf}\includegraphics[scale=.55]{"Figure 10.pdf}}
+\hfill
+\begin{minipage}[t]{.45\textwidth}
+\vspace{-45mm}
+List of possible equilibria:\\
+\\
+A. ($AK$,~$GGBB$)\\
+B. ($AK$,~$GGGB$)\\
+C. $M_{GGGB}$\\
+D. $M_{GBBB}$\\
+E. $M_{GBGB}$\\
+F. ($AK$,~$GBBB$)\\
+\end{minipage}
+\caption{Depending on the precise values of the parameters, as $e_{3}$ decreases from $\frac{1}{2}$ to $0$, the model yields several different types of outcome. These figures show the equilibrium proportion of senders playing $AK$ as a function of $e_{3}$, as well as the information content in bits of the two cues obtained by the receiver: quality information (dotted), amplifier information (dashed) and both messages combined (dot-dashed).}
+\label{fig:Figure 8910}
+\end{figure}
+
+\vspace{-1mm}
+
+At the above starting point, the use of the amplifier is conditional on the sender's quality; it perfectly correlates with its quality. This means that the amplifier potentially provides valuable information and that it would pay the receiver to pick up on this correlation. Selection would, thus, favour the ability to detect whether a sender is amplifying or concealing its quality. As mentioned in section~\ref{sec:Model and Assumptions}, the parameter $e_{3}$ is a measure of how precisely the receiver can evaluate whether or not the sender has used an amplifier. Let us imagine that the receiver slowly evolves the ability to assess whether or not a sender has amplified its quality cue. With increased precision of this assessment, the error $e_{3}$ decreases from $\frac{1}{2}$ down to lower values and the model yields different types of outcome.
+
+As receivers get better at detecting the use of an amplifier, the model runs through several different equilibria, always starting from ($AK$,~$GGBB$). Depending mostly on the proportion of high quality senders $p$, three possible pathways exist. Figure~\ref{fig:Figure 8910} shows these three sets of possible equilibria, including the mixed equilibria. The general trend of each of these equilibria is that, as $e_{3}$ decreases, the attention the receiver pays to the sender's use of the amplifier increases. Consequently, the proportion of senders playing $AK$ decreases with lower values of $e_{3}$. Low quality senders are seen to amplify as well.
+
+If the error in the receiver's perception of the amplifier is very small, the model ends up in the $M_{GBBB}$ mixed equilibrium. This is denoted by `D' in figure~\ref{fig:Figure 8910}. In this case, senders of high quality always amplify their cue, while low quality senders sometimes amplify but sometimes do not. A proportion of the receivers does not care about the amplifier and only judges the senders based on the information in the quality cue. The other proportion of receivers does look at the amplifier too, and is quite harsh in their judgement of the sender. They only produce the favourable response $G$ when the information they obtain suggests the sender is of high quality, $H_{R}$, and has used an amplifier, $A_{R}$.
+
+Similarly to the previous section, it is possible to summarise the key properties of the equilibria using the entropy measure and information content. This is also shown in figure~\ref{fig:Figure 8910}. As the error $e_{3}$ gets smaller, the information content of the cue telling the receiver whether the sender has used an amplifier or not, tends to go up. At some point, however, the sender notices that it pays off to amplify its cue, even when it is of low quality itself. This is because the receiver might believe a sender to be of high quality when it is willing to use an amplifier. If the sender plays $AA$, the correlation between the quality of the sender and its use of the amplifier disappears. As a result, this correlation decreases in a mixed equilibrium. Figure~\ref{fig:Figure 8910} shows, as a dashed line, how the amplifier information decreases for very low $e_{3}$.
+
+The information conveyed by the quality cue is independent of $e_{3}$. However, the dotted line in figure~\ref{fig:Figure 8910}, representing this information content, does go up as receivers evolve the ability to detect whether a sender has used an amplifier. This is because more senders will amplify their cue as $e_{3}$ becomes smaller. By definition, the effect of amplification is that the error in the perception of quality goes down. As such, the information content of the quality cue tends to go up with lower values of $e_{3}$.
+
+To sum up the content of figure~\ref{fig:Figure 8910}, as receivers become better at observing the amplifying display itself, low quality senders will find it beneficial to amplify their quality cue as well. The quality cue will become easier to observe, due to this amplification. However, the difference between high quality and low quality senders in terms of their use of the amplifier diminishes.
+
+\newpage
+
+
+\section{Discussion}
+\label{sec:Discussion}
+
+Within sexual selection, the model presented above can be interpreted to show that males will display an amplifying display even when there is no direct female choice for that display. Due to the conditional expression of an amplifier, it pays females to be able to assess the use of the display. As a consequence, direct choice can evolve when the amplifier correlates with male quality. With increased precision of the amplifier assessment, females may base their mating decisions on a combination of the quality cue they perceive, as well as on their determination of whether an amplifying display has been used. It is up to experimentalists to determine whether amplifiers are actually used in nature, and whether there is direct female choice for the use of an amplifier. 
+
+This model of observable amplification predicts that there is a direct correlation between the amplifier and female preference. There is also a correlation between the quality cue and female preference and between male quality and the amplifier. As the amplifier itself is attractive, reducing its expression in an experiment should both reduce the attractiveness of the population, as well as decrease the correlation between the quality cue and female preference. In an experiment manipulating the amplifying display, low quality males may become more attractive with increased levels of amplification. This depends on how much emphasis females place on the use of the amplifier. On the other hand, low quality males may also become less attractive as their quality cue better reveals their low quality to the females. This prediction is, therefore, hard to test. In order to illustrate the type of amplification described by the cue game with observable amplification, let us look at a speculative example.
+
+The classic example of a trait which evolved due to strong female choice is the peacock's tail, known as the train. In several studies, a correlation had been found between the length of the train and the mating success of the individual peacock~\cite{Yasmin1996, Petrie1991}. A long tail may serve as a handicap to the bird and, hence, functions as a signal of quality. It may be suggested that the displaying behaviour, the upright tail, of male peacocks allows for an easier assessment of the length of the train and is, therefore, an amplifying behaviour. Furthermore, the v-shaped ends on the longest feathers, referred to as fish-tail feathers, define the outer region of the train. These, too, may function as an amplifier of train-length.
+
+Another aspect of the peacock's train which can potentially facilitate the assessment of its length, are the eye-spots, or ocelli. This pattern is most likely relatively cheap to produce, and need not necessarily correlate with quality by design. The distinct pattern does, however, make the train more obvious and might make the size easier to determine. It may, therefore, be considered an amplifier.
+
+Studies have shown that there is a significant positive correlation between the number of eye-spots in the train and the number of mates a male obtains, suggesting there is direct female choice for this display~\cite{Petrie1991, Loyau2005}. Experiments confirmed that removing a large number of the outermost eyespots from a male's train decreases his mating success compared to unmanipulated males~\cite{Petrie1994, Dakin2011}.
+
+There is some controversy over the exact interpretation of these results, as not all studies found a strong correlation between the number of eye-spots and female choice in field observations~\cite{Takahashi2008, Loyau2008, Dakin2011}. The experimental work suggests there is strong female choice for both the number of eye-spots as well as for the length of the peacock's train. This is equivalent to females playing strategy $GBBB$ in the model above. In nature, however, there is not a lot of variance in the number of eye-spots~\cite{Dakin2011}. The model above shows that, if the error in detection of the amplifier, $e_{3}$, is small relative to the error in the assessment of the quality cue, $e_{1}$ and $e_{2}$, low quality males may display the amplifier as well, often playing strategy $AA$. In the case of the peafowl, it is reasonable to assume the error in the detection of the number of eye-spots is lower than the error in determining the size of the train. This means even low quality birds benefit from using the amplifying display. In figure~\ref{fig:Figure 8910} above, it can be seen that the information content of the amplifier is relatively small when $e_{3}$ is very low, meaning a low correlation between the display and male quality.
+
+To sum up, there may be a strong direct female choice for the eye-spots, while males in nature do not show a lot of variance in the number of eye-spots. The hypothesis that eye-spots are an observable amplifier within the $M_{GBBB}$ mixed equilibrium may explain why some studies failed to find a strong correlation between the number of eye-spots and reproductive success, while other experiments did confirm there was direct female choice for the display. Further experiments would need to be conducted to either confirm or reject the hypothesis that eye-spots function as observable amplifiers. In particular, it should be determined whether the assessment of length is obstructed by an experimental reduction in eye-spots.
+
+\newpage
+
+
+\phantomsection
+\label{sec:Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\renewcommand{\refname}{Bibliography}
+\bibliographystyle{acm}
+\bibliography{../Bibliography}
+
+\newpage
+
+
+\appendix
+
+\section{Extensive Form}
+\label{sec:Extensive Form}
+
+In section~\ref{sec:Model and Assumptions}, a verbal description of the model was presented. The model may also be given in extensive form, as depicted in figure~\ref{fig:Figure 3.pdf}. This figure shows that the sender can either be of high quality, $H$, or of low quality, $L$, with probabilities $0<p<1$ and $1-p$, respectively. This sender can make the choice to amplify its cue, $A$, or keep the accuracy of the receiver's assessment the same, $K$. The receiver cannot perfectly observe the sender's quality, but receives information from a cue which directly correlates with the sender's quality. It also receives information concerning the use of the amplifier. The receiver's assessment of both these cases is error-prone, and the various parameters $0<e_{1},e_{2},e_{3}<\frac{1}{2}$ are measures of the accuracy of the receiver's perception. Finally, the receiver responds to the sender with actions $G$ or $B$. The receiver obtains a payoff equal to 1 when it has correctly identified the quality of the sender. The sender only benefits from eliciting the favourable response $G$. In the model presented above, we assume amplification is cost free, i.e. $c_{H} = c_{L} = 0$.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.55]{"Figure 5.pdf}
+\caption{The extensive form of the model}
+\label{fig:Figure 3.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Payoff Matrix}
+\label{sec:Payoff Matrix}
+
+From the brief description of the model in section~\ref{sec:Model and Assumptions} and the full description of section~\ref{sec:Extensive Form}, it is straight forward to create the payoff matrix, which shows the expected payoff to the sender and to the receiver as a function of their strategies.
+
+\vspace{6mm}
+
+\begin{table}[h!]
+\renewcommand\arraystretch{1.15}
+\begin{center}
+\begin{tabular}{l||l|l}
+ &\multicolumn{1}{c|}{AA}&\multicolumn{1}{c}{AK}\\
+\hline
+\hline
+\multirow{3}{*}{GGGG}&\multicolumn{1}{r|}{$1$}&\multicolumn{1}{r}{$1$}\\
+ & \hspace{60mm} & \hspace{60mm} \\
+ &$p$&$p$\\
+\hline
+\multirow{8}{*}{GGGB}&\multicolumn{1}{r|}{$p(1-e_{1})+$}&\multicolumn{1}{r}{$p(1-e_{1})+$}\\
+ &\multicolumn{1}{r|}{$p(e_{1})(1-e_{3})+$}&\multicolumn{1}{r}{$p(e_{1})(1-e_{3})+$}\\
+ &\multicolumn{1}{r|}{$(1-p)(e_{1})+$}&\multicolumn{1}{r}{$(1-p)(e_{2})+$}\\
+ &\multicolumn{1}{r|}{$(1-p)(1-e_{1})(1-e_{3})$}&\multicolumn{1}{r}{$(1-p)(1-e_{2})(e_{3})$}\\
+&&\\
+ &$p(1-e_{1})+$&$p(1-e_{1})+$\\
+ &$p(e_{1})(1-e_{3})+$&$p(e_{1})(1-e_{3})+$\\
+ &$(1-p)(1-e_{1})(e_{3})$&$(1-p)(1-e_{2})(e_{3})$\\
+\hline
+\multirow{5}{*}{GGBB}&\multicolumn{1}{r|}{$p(1-e_{1})+$}&\multicolumn{1}{r}{$p(1-e_{1})$}\\
+ &\multicolumn{1}{r|}{$(1-p)(e_{1})$}&\multicolumn{1}{r}{$(1-p)(e_{2})$}\\
+&&\\
+ &$ $&$p(1-e_{1})+$\\
+ &$1-e_{1}$&$(1-p)(1-e_{2})$\\
+\hline
+\multirow{4}{*}{GBGB}&\multicolumn{1}{r|}{$1-e_{3}$}&\multicolumn{1}{r}{$p(1-e_{3})+$}\\
+ &$ $&\multicolumn{1}{r}{$(1-p)(e_{3})$}\\
+ &$p(1-e_{3})+$&$ $\\
+ &$(1-p)(e_{3})$&$1-e_{3}$\\
+\hline
+\multirow{7}{*}{GBBB}&\multicolumn{1}{r|}{$p(1-e_{1})(1-e_{3})+$}&\multicolumn{1}{r}{$p(1-e_{1})(1-e_{3})+$}\\
+ &\multicolumn{1}{r|}{$(1-p)(e_{1})(1-e_{3})$}&\multicolumn{1}{r}{$(1-p)(e_{2})(e_{3})$}\\
+&&\\
+ &$p(1-e_{1})(1-e_{3})+$&$p(1-e_{1})(1-e_{3})+$\\
+ &$(1-p)(e_{1})(e_{3})+$&$(1-p)(e_{2})(e_{3})+$\\
+ &$(1-p)(1-e_{1})$&$(1-p)(1-e_{2})$\\
+\hline
+\multirow{3}{*}{BBBB}&\multicolumn{1}{r|}{$0$}&\multicolumn{1}{r}{$0$}\\
+&&\\
+ &$1-p$&$1-p$\\
+\multicolumn{3}{c}{ }
+\end{tabular}
+\end{center}
+\caption{The payoff matrix}
+\label{eq:Label}
+\end{table}
+
+\newpage
+
+
+\section{Full Methods}
+\label{sec:Full Methods}
+
+Within the mixed equilibrium $M_{GGGB}$, the proportion of senders playing $AA$, $r_{S}$, and the proportion of receivers playing $GGGB$, $r_{R}$, are given by equation~\ref{eq:rMGGGB}.
+\begin{subequations}
+\label{eq:rMGGGB}
+\begin{gather}
+r_{S}(M_{\text{GGGB}})=\frac{(1-p)(1-e_{2})(e_{3})-p(e_{1})(1-e_{3})}{(1-p)(1-e_{2})(e_{3})-(1-p)(1-e_{1})(1-e_{3})}\\
+r_{R}(M_{\text{GGGB}})=\frac{e_{2}-e_{1}}{(1-e_{1})(1-e_{3})-(1-e_{2})(e_{3})}
+\end{gather}
+\end{subequations}
+
+Within the mixed equilibrium $M_{GBBB}$, the proportion of senders playing $AA$ and the proportion of receivers playing $GBBB$ are given by equation~\ref{eq:rMGBBB}.
+\begin{subequations}
+\label{eq:rMGBBB}
+\begin{gather}
+r_{S}(M_{\text{GBBB}})=\frac{p(1-e_{1})(e_{3})-(1-p)(e_{2})(1-e_{3})}{(1-p)(e_{1})(e_{3})-(1-p)(e_{2})(1-e_{3})}\\
+r_{R}(M_{\text{GBBB}})=\frac{e_{2}-e_{1}}{(e_{2})(1-e_{3})-(e_{1})(e_{3})}
+\end{gather}
+\end{subequations}
+
+Within the mixed equilibrium $M_{GBGB}$, the proportion of senders playing $AA$ and the proportion of receivers playing $GBGB$ are given by equation~\ref{eq:rMGBGB}.
+\begin{subequations}
+\label{eq:rMGBGB}
+\begin{gather}
+r_{S}(M_{\text{GBGB}})=\frac{p(e_{1})(1-e_{3})-(1-p)(1-e_{2})(e_{3})}{(1-p)(1-e_{1})(1-e_{3})-(1-p)(1-e_{2})e_{3}}\\
+r_{R}(M_{\text{GBGB}})=\frac{(e_{2})(e_{3})-(e_{1})(1-e_{3})}{(1-e_{1})(1-e_{3})-(1-e_{2})(e_{3})}
+\end{gather}
+\end{subequations}
+
+These functions are used to determine the stability of the limit cycles and are used in figure~\ref{fig:Figure 8910} to determine the proportion of $AK$-playing senders.
+
+\begin{figure}[h]
+\begin{center}
+\captionsetup[subfigure]{width=40mm}
+\subfloat[Phase space including $\text{M}_{\text{GGGB}}$ and $\text{M}_{\text{GBBB}}$]{\label{fig:Figure 6.pdf}\includegraphics[scale=.43]{"Figure 6.pdf}}
+\hspace{16mm}
+\subfloat[Phase space including $\text{M}_{\text{GBGB}}$]{\label{fig:Figure 7.pdf}\includegraphics[scale=.43]{"Figure 7.pdf}}
+\caption{Two subspaces of phase-space showing the mixed equilibria}
+\label{fig:Figure 67}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\section{Full Results}
+\label{sec:Full Results}
+
+ For regions $R_{a}1$ and $R_{a}3$, determining the equilibria is relatively straight forward. As shown in table~\ref{tab:CueGamewithObservableAmplification/EquilibriaRa1} and table~\ref{tab:CueGamewithObservableAmplification/EquilibriaRa3}, some regions lead to the combination of $AA$ and $AK$ being neutrally stable. In these cases, there is no benefit for the sender to choosing either one of the possible strategies.
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & Region S1 & Region S2 & Region S3\\
+Region $R_{b}1$: & (\{AA, AK\}, BBBB) & (\{AA, AK\}, BBBB) & (\{AA, AK\}, BBBB)\\
+Region $R_{b}2$: & (AA, BBBB) & x & x\\
+Region $R_{b}3$: & x & x & x\\
+Region $R_{b}4$: & (AA, BBBB) & x & x\\
+Region $R_{b}5$: & x & x & x\\
+Region $R_{b}6$: & x & x & x
+\end{tabular}
+\end{center}
+\caption{Equilibria within Region $R_{a}1$}
+\label{tab:CueGamewithObservableAmplification/EquilibriaRa1}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & Region S1 & Region S2 & Region S3\\
+Region $R_{b}1$: & x & x & x\\
+Region $R_{b}2$: & x & x & x\\
+Region $R_{b}3$: & x & x & x\\
+Region $R_{b}4$: & (AA, GGGG) & x & x\\
+Region $R_{b}5$: & (AA, GGGG) & (AA, GGGG) & x\\
+Region $R_{b}6$: & (\{AA, AK\}, GGGG) & (\{AA, AK\}, GGGG) & (\{AA, AK\}, GGGG)
+\end{tabular}
+\end{center}
+\caption{Equilibria within Region $R_{a}3$}
+\label{tab:CueGamewithObservableAmplification/EquilibriaRa3}
+\end{table}
+
+It turns out that, within $R_{a}2$, there is another condition which splits region $R_{b}4$ into two, as given in equation~\ref{eq:AdditionalRegion}. This has effect on whether $M_{GBBB}$ or $M_{GGGB}$ is stable.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region $R_{b}4_{a}$: & $p<f_{9}(e_{1}, e_{2}, e_{3})$\\
+Region $R_{b}4_{b}$: & $f_{9}(e_{1}, e_{2}, e_{3})<p$
+\end{tabular}
+\end{center}
+\caption{Additional regions}
+\label{tab:CueGamewithObservableAmplification/AdditionalRegion}
+\end{table}
+
+\begin{equation}
+\label{eq:AdditionalRegion}
+f_{9}(e_{1}, e_{2}, e_{3})=\frac{e_{2}(1-e_{1})-2 e_{2} e_{3}(1-e_{1})-e_{3}^2 (e_{1}-e_{2})}{e_{2}+e_{3}-2 e_{3}^2-\left(2 e_{3}-2 e_{3}^2\right) (e_{1}+e_{2})}
+\end{equation}
+
+\newpage
+
+
+\section{Unobservable Amplification}
+\label{sec:Unobservable Amplification}
+
+In the full model, we examined a game in which amplification was observable. We will now look at unobservable amplification. We will also assume the sender is only partially aware of its own quality. It receives a quality cue about its own type and can choose whether or not to amplify, action $A$ or action $K$, based on this information.
+
+In his original model, Hasson added a coefficient to his model which determined the amount of expression of the amplifier in the low quality sender. We will introduce a similar concept to our model, but we do not fix the conditionality a priori on the low quality sender. By allowing any type of strategy, the optimal quality-dependent behaviour will evolve. The results are qualitatively the same as those found by Hasson
+
+In particular, the sender will now perceive an error-prone cue about its own quality which may take two possible values: $H_{S}$ for the perception of a \textit{high quality}, $L_{S}$ for the perception of being a \textit{low quality} sender. The subscript `S' refers to the \textit{sender}. While the cue typically takes value $H_{S}$ when the sender is of high quality, and $L_{S}$ when the sender is of low quality, the sender sometimes observes $L_{S}$ when it is of high quality and $H_{S}$ when it is of low quality. Let $0<e_{4}<\frac{1}{2}$ be the probability of error in the assessment of quality, so that the sender perceives high quality as $H_{S}$ with probability $1-e_{4}$ and as $L_{S}$ with probability $e_{4}$. The opposite probabilities apply to a cue from a low quality sender.
+
+The sender can choose to amplify or to conceal conditionally on this information. An alternative interpretation is that the sender, while fully aware of its own quality, is only partially able to influence its own actions and may be partially predetermined to either amplify or conceal. Therefore, the variable $e_{4}$ captures the sender's ability to detect its own quality, its ability to influence its own level of amplification based on this quality, or a combination of the two.
+
+Figure~\ref{fig:Figure 3.pdf} shows the extensive form of this model, similar to the one in appendix~\ref{sec:Extensive Form}. The difference is the unobservability of the amplifier and the addition of the cue the sender receives about its own quality. This information is error-prone, therefore it is Nature which makes a random choice between $H_{S}$ and $L_{S}$, with the appropriate probabilities.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.59]{"Figure 3.pdf}
+\caption{Extensive form}
+\label{fig:Figure 3.pdf}
+\end{center}
+\end{figure}
+
+Now that the sender has at least some information about its own quality, it may use this information in its decision to amplify or not. It follows that the sender has strategies specifying two actions: the first to be employed when it believes to be of high quality, the second action to be employed in case of the perception of low quality. The receiver still obtains information about the sender via a quality cue. It chooses $G$ or $B$ based on this assessment and has strategies specifying two actions.
+
+\newpage
+
+As usual, testing which of these is dominated reduces the list of strategies to consider. Table~\ref{tab:CueGamewithConditionalAmplification/StrategiesS} lists the remaining strategies for the sender, while table~\ref{tab:CueGamewithConditionalAmplification/StrategiesR} shows the receiver's remaining strategies.
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{ccc}
+\text{AA} & \text{AK} & \text{KK}
+\end{tabular}
+\end{center}
+\caption{Sender's remaining strategies}
+\label{tab:CueGamewithConditionalAmplification/StrategiesS}
+\end{table}
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{ccc}
+\text{GG} & \text{GB} & \text{BB}
+\end{tabular}
+\end{center}
+\caption{Receiver's remaining strategies}
+\label{tab:CueGamewithConditionalAmplification/StrategiesR}
+\end{table}
+
+The expected payoffs allow us to define the different regions of parameter-space and the best responses for both players within these regions. Table~\ref{tab:CueGamewithConditionalAmplification/ConditionalPayoffsS} lists the expected payoffs for the sender, along with the conditions under which $A$ yields a greater payoff that $K$.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lcccccrcc}
+$P_{S}(A|H_{S},GG)$ & $=$ & $1$ & $=$ & $1$ & $=$ & $P_{S}(K|H_{S},GG)$ & for & any value\\
+$P_{S}(A|L_{S},GG)$ & $=$ & $1$ & $=$ & $1$ & $=$ & $P_{S}(K|L_{S},GG)$ & for & any value\\
+$P_{S}(A|H_{S},GB)$ & $=$ & \hspace{16mm} & & \hspace{16mm} & $=$ & $P_{S}(K|H_{S},GB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$e_{4}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(1-e_{4})(1-e_{1})+(1-p)(e_{4})(e_{1})}{p(1-e_{4})+(1-p)(e_{4})}$} & $>$ & \multicolumn{3}{l}{$\frac{p(1-e_{4})(1-e_{2})+(1-p)(e_{4})(e_{2})}{p(1-e_{4})+(1-p)(e_{4})}$} &
+\vspace{1mm}\\
+$P_{S}(A|L_{S},GB)$ & $=$ & & & & $=$ & $P_{S}(K|L_{S},GB)$ & \multirow{2}{*}{for} & \multirow{2}{*}{$1-e_{4}<p$}
+\vspace{-1mm}\\
+\multicolumn{3}{r}{$\frac{p(e_{4})(1-e_{1})+(1-p)(1-e_{4})(e_{1})}{p(e_{4})+(1-p)(1-e_{4})}$} & $>$ & \multicolumn{3}{l}{$\frac{p(e_{4})(1-e_{2})+(1-p)(1-e_{4})(e_{2})}{p(e_{4})+(1-p)(1-e_{4})}$} & 
+\vspace{1mm}\\
+$P_{S}(A|H_{S},BB)$ & $=$ & $0$ & $=$ & $0$ & $=$ & $P_{S}(K|H_{S},BB)$ & for & any value\\
+$P_{S}(A|L_{S},BB)$ & $=$ & $0$ & $=$ & $0$ & $=$ & $P_{S}(K|L_{S},BB)$ & for & any value
+\end{tabular}
+\end{center}
+\caption{Sender's expected payoffs}
+\label{tab:CueGamewithConditionalAmplification/ConditionalPayoffsS}
+\end{table}
+
+Table~\ref{tab:CueGamewithConditionalAmplification/ConditionalPayoffsR} lists the expected payoffs for the receiver as a function of the sender's strategy and the model's parameters, along with the conditions under which $G$ yields a greater payoff that $B$.
+
+\begin{table}[h]
+\begin{center}
+\setlength{\tabcolsep}{.22em}
+\begin{tabular}{lcccccrcc}
+$P_{R}(G|H_{R},AA)$ & $=$ & $\frac{p(1-e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$ & $>$ & $\frac{(1-p)(e_{1})}{p(1-e_{1})+(1-p)(e_{1})}$ & $=$ & $P_{R}(B|H_{R},AA)$ & for & $e_{1}<p$\\
+$P_{R}(G|L_{R},AA)$ & $=$ & $\frac{p(e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$ & $>$ & $\frac{(1-p)(1-e_{1})}{p(e_{1})+(1-p)(1-e_{1})}$ & $=$ & $P_{R}(B|L_{R},AA)$ & for & $1-e_{1}<p$
+\vspace{1mm}\\
+$P_{R}(G|H_{R},AK)$ & $=$ & \multicolumn{7}{l}{$\frac{p(1-e_{4})(1-e_{1})+p(e_{4})(1-e_{2})}{p(1-e_{4})(1-e_{1})+p(e_{4})(1-e_{2})+(1-p)(e_{4})(e_{1})+(1-p)(1-e_{4})(e_{2})}$}
+\vspace{1mm}\\
+\multicolumn{5}{r}{$> \frac{(1-p)(e_{4})(e_{1})+(1-p)(1-e_{4})(e_{2})}{p(1-e_{4})(1-e_{1})+p(e_{4})(1-e_{2})+(1-p)(e_{4})(e_{1})+(1-p)(1-e_{4})(e_{2})}$} & $=$ & $P_{R}(G|H_{R},AK)$ & for & $f_{1}<p$
+\vspace{2mm}\\
+$P_{R}(G|L_{R},AK)$ & $=$ & \multicolumn{7}{l}{$\frac{p(1-e_{4})(e_{1})+p(e_{4})(e_{2})}{p(1-e_{4})(e_{1})+p(e_{4})(e_{2})+(1-p)(e_{4})(1-e_{1})+(1-p)(1-e_{4})(1-e_{2})}$}
+\vspace{1mm}\\
+\multicolumn{5}{r}{$> \frac{(1-p)(e_{4})(1-e_{1})+(1-p)(1-e_{4})(1-e_{2})}{p(1-e_{4})(e_{1})+p(e_{4})(e_{2})+(1-p)(e_{4})(1-e_{1})+(1-p)(1-e_{4})(1-e_{2})}$} & $=$ & $P_{R}(G|L_{R},AK)$ & for & $f_{2}<p$
+\vspace{2mm}\\
+$P_{R}(G|H_{R},KK)$ & $=$ & $\frac{p(1-e_{2})}{p(1-e_{2})+(1-p)(e_{2})}$ & $>$ & $\frac{(1-p)(e_{2})}{p(1-e_{2})+(1-p)(e_{2})}$ & $=$ & $P_{R}(B|H_{R},KK)$ & for & $e_{2}<p$\\
+$P_{R}(G|L_{R},KK)$ & $=$ & $\frac{p(e_{2})}{p(e_{2})+(1-p)(1-e_{2})}$ & $>$ & $\frac{(1-p)(1-e_{2})}{p(e_{2})+(1-p)(1-e_{2})}$ & $=$ & $P_{R}(B|L_{R},KK)$ & for & $1-e_{2}<p$
+\end{tabular}
+\end{center}
+\caption{Receiver's expected payoffs}
+\label{tab:CueGamewithConditionalAmplification/ConditionalPayoffsR}
+\end{table}
+
+In table~\ref{tab:CueGamewithConditionalAmplification/ConditionalPayoffsR}, the conditions which describe the relation between the expected payoffs for both the receiver's perceptions, when the sender plays its $AK$ strategy, result in long expressions. Equation~\ref{eq:f1andf2} gives these expressions. It defines a boundary in parameter-space which separates regions for which the best course of action for the receiver differs. 
+\begin{subequations}
+\label{eq:f1andf2}
+\begin{gather}
+f_{1}(e_{1},e_{2},e_{4})=\frac{e_{2}-e_{4}(e_{2}-e_{1})}{1+(e_{2}-e_{1})-2 e_{4}(e_{2}-e_{1})}\\
+f_{2}(e_{1},e_{2},e_{4})=\frac{1-e_{2}+e_{4}(e_{2}-e_{1})}{1-(e_{2}-e_{1})+2 e_{4}(e_{2}-e_{1})}
+\end{gather}
+\end{subequations}
+
+The distinct regions of parameter-space which are important to the sender are listed in table~\ref{tab:CueGamewithConditionalAmplification/RegionsS}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region S1: & $p<e_{4}<1-e_{4}$\\
+Region S2: & $e_{4}<p<1-e_{4}$\\
+Region S3: & $e_{4}<1-e_{4}<p$
+\end{tabular}
+\end{center}
+\caption{Sender's regions}
+\label{tab:CueGamewithConditionalAmplification/RegionsS}
+\end{table}
+
+The regions of parameter-space which are important to the receiver are listed in table~\ref{tab:CueGamewithConditionalAmplification/RegionsR}. It can be checked that $f_{1}$ always lies between $e_{1}$ and $e_{2}$. Likewise, $f_{2}$ always falls in between $1-e_{2}$ and $1-e_{1}$.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lc}
+Region R1: & $p<e_{1}<f_{1}(e_{1},e_{2},e_{4})<e_{2}<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}$\\
+Region R2: & $e_{1}<p<f_{1}(e_{1},e_{2},e_{4})<e_{2}<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}$\\
+Region R3: & $e_{1}<f_{1}(e_{1},e_{2},e_{4})<p<e_{2}<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}$\\
+Region R4: & $e_{1}<f_{1}(e_{1},e_{2},e_{4})<e_{2}<p<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}$\\
+Region R5: & $e_{1}<f_{1}(e_{1},e_{2},e_{4})<e_{2}<1-e_{2}<p<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}$\\
+Region R6: & $e_{1}<f_{1}(e_{1},e_{2},e_{4})<e_{2}<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<p<1-e_{1}$\\
+Region R7: & $e_{1}<f_{1}(e_{1},e_{2},e_{4})<e_{2}<1-e_{2}<f_{2}(e_{1},e_{2},e_{4})<1-e_{1}<p$
+\end{tabular}
+\end{center}
+\caption{Receiver's regions}
+\label{tab:CueGamewithConditionalAmplification/RegionsR}
+\end{table}
+
+Table~\ref{tab:CueGamewithConditionalAmplification/BestResponseS} makes use of the method of the trembling hands and lists the best responses for the sender. These solely depend on the model's parameters, i.e. on what region of parameter-space we are in, and not on the receiver's strategies.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & GG & GB & BB\\
+Region S1: & KK & KK & KK\\
+Region S2: & AK & AK & AK\\
+Region S3: & AA & AA & AA
+\end{tabular}
+\end{center}
+\caption{Sender's best response}
+\label{tab:CueGamewithConditionalAmplification/BestResponseS}
+\end{table}
+
+\newpage
+
+Table~\ref{tab:CueGamewithConditionalAmplification/BestResponseR} lists the best responses for the receiver. These depend on both the model's parameters and on the receiver's strategies.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & AA & AK & KK\\
+Region R1: & BB & BB & BB\\
+Region R2: & GB & BB & BB\\
+Region R3: & GB & GB & BB\\
+Region R4: & GB & GB & GB\\
+Region R5: & GB & GB & GG\\
+Region R6: & GB & GG & GG\\
+Region R7: & GG & GG & GG
+\end{tabular}
+\end{center}
+\caption{Receiver's best response}
+\label{tab:CueGamewithConditionalAmplification/BestResponseR}
+\end{table}
+
+Determining the equilibria of this model is, again, fairly trivial. This is because the best response of the sender is independent from the strategy adopted by the receiver. We simply look at the different regions within parameter-space and list the outcomes dictated by the best responses. As before, an `x' indicates when two regions have zero-overlap, as seen in table~\ref{tab:CueGamewithConditionalAmplification/Equilibria}.
+
+\vspace{-2mm}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lccc}
+ & Region S1 & Region S2 & Region S3\\
+Region R1: & (KK, BB) & (AK, BB) & x\\
+Region R2: & (KK, GB) & (AK, BB) & x\\
+Region R3: & (KK, GB) & (AK, GB) & x\\
+Region R4: & (KK, GB) & (AK, GB) & (AA, GB)\\
+Region R5: & x & (AK, GB) & (AA, GG)\\
+Region R6: & x & (AK, GG) & (AA, GG)\\
+Region R7: & x & (AK, GG) & (AA, GG)
+\end{tabular}
+\end{center}
+\caption{Equilibria}
+\label{tab:CueGamewithConditionalAmplification/Equilibria}
+\end{table}
+
+The information content of each cue can be determined using the standard measures of entropy. In this model, the sender has error-prone information about its own quality. For example, when $p = 0.50$ and $e_{4} = 0.20$, the entropy prior to perception is $H_{q} = 1.00$ bits and after perception, is $H_{q_{S}}(q) = 0.72$ bits. Therefore, in this case, the information content is $I(q, q_{S}) = 0.28$ bits. These same values apply to the information content for the receiver, when $e_{2} = 0.20$ and the sender does not amplify. If the sender amplifies only when it thinks it is of high quality, playing its $AK$ strategy, the entropy after perception is $H_{q_{R}}(q) = 0.61$ bits when $e_{1} = 0.10$ and $e_{4} = 0.20$. The information content of the quality cue is, then, $I(q, q_{R}) = 0.39$ bits. Finally, when the sender plays $AA$, the entropy reduces to $H_{q_{R}}(q) = 0.47$ bits and the information content of the cue is $I(q, q_{R}) = 0.53$ bits.
+
+This model predicts that, if an amplifier enhances the perception of an attractive display, there will be a strong correlation between female preference and the display. Contrary to the previous model, in this case there may be a correlation between the amplifier and female preference in field observations, but solely one mediated by the male's display. According to our model, high quality males will choose to amplify, the same males who are attractive to females. Compared to the previous model, there should be more variance in the level of amplification and this level should correlate with male quality. This results in a correlation between the amplifier and attractiveness. This does not mean that the amplifier itself is attractive. In an experiment manipulating the amplifying display, there should be no correlation between the amplifier and female preference. In fact, low quality males should unambiguously become less attractive with increased levels of amplification. In order to illustrate the type of amplification described by the cue game with conditional amplification, let us look at two examples.
+
+Male feral guppies, \textit{Poecilia reticulata}, have orange carotenoid areas and black melanin spots~\cite{Brooks1995}. Female guppies show a significant preference for the degree of orange colouration, but not for the black spots. It has been shown that the brightness of the orange colouration correlates with male condition~\cite{Nicoletto1993}. The amount of black spots has a small, insignificant correlation with male condition. It may, therefore, be the case that the level of carotenoid serves as a quality cue. The black areas of male guppies may function as amplifiers, outlining orange areas and making the level of carotenoid easier to detect~\cite{Brooks1996}. An experiment in which the number of black spots was reduced, showed that this weakened the correlation between females choice and the level of orange. It resulted in a decrease in attractiveness of individual males with a high degree of orange colouration and a small increase in attractiveness for low quality males. Although it remains speculative, it is reasonable to assume that the guppies have some level of control over the amount of black melanin spots it produces, depending on its assessment of its own quality. The example of the feral guppies conforms to region S3xR4 of our model. Like many other examples of amplifiers, this case is not especially convincing. Further research on the function of the black spots in guppies is needed. Potentially, the simple models of amplification in this thesis will inspire empiricists to look for amplifying displays in more species.
+
+Amplifiers need not be restricted to patterns, but can also include colours or behaviours. The behaviour and abdominal patterns of the spider \textit{Plexippus paykulli} have been examined and it has been suggested that these function as amplifiers~\cite{Taylor2000}. The condition of these spiders depends on their food intake. When a spider has eaten, its abdomen expands. Female spiders and male rivals are interested in abdominal width due to this correlation with the male's condition. Abdominal exposure itself is a behaviour which allows females to better assess the quality cue of males. Furthermore, the abdominal pattern contrasts the region which does not expand with the region of the abdomen which does expand. It thereby sets a frame by which changes in body condition can be measured. Clearly, the functioning of the abdominal pattern cannot depend on the condition of the spider. Therefore, the value $e_{4}$ associated with this amplifier must be close to $\frac{1}{2}$. However, it is reasonable to suggest the exposing behaviour can fully depend on the condition of the male, although this has not yet been investigated. As such, this behaviour may be an amplifier conforming to region R2 of our current model.
+
+\end{document}

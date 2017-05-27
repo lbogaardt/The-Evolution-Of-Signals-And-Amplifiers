@@ -1,0 +1,591 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsmath,graphicx,fullpage,hyperref,subfig,hypcap,amsfonts,parskip,titlesec}
+\usepackage{microtype}
+
+\titlespacing\section{0pt}{20pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+\titlespacing\subsection{0pt}{16pt plus 4pt minus 2pt}{2pt plus 4pt minus 2pt}
+
+\widowpenalty=2000
+\clubpenalty=2000
+\hyphenpenalty=400
+\interfootnotelinepenalty=400
+\DisableLigatures{encoding=*,family=*}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+\linespread{1.1}
+
+\begin{document}
+
+\label{sec:Cover Page}
+\addcontentsline{toc}{section}{Cover Page}
+
+\href{http://www.royalsocietypublishing.org}{Proceedings of the Royal Society} \hfill This submission: 2016-05-03\\
+\href{http://rspb.royalsocietypublishing.org}{Series B: Biological Sciences} \hfill First submission: 2016-02-11
+
+\vspace{70mm}
+
+\begin{center}
+\begin{LARGE}
+\begin{bf}
+Amplifiers and the Origin of Animal Signals
+\end{bf}
+\end{LARGE}
+\end{center}
+
+\vfill
+
+\href{http://www.bogaardtresearch.tk}{Laurens Bogaardt} \hfill \href{http://www.zoo.cam.ac.uk/directory/rufus-johnstone}{Rufus A. Johnstone}\\
+\href{http://www.cam.ac.uk}{University of Cambridge} \hfill \href{http://www.cam.ac.uk}{University of Cambridge}\\
+\href{mailto:lbogaardt@cantab.net}{lbogaardt@cantab.net} \hfill \href{mailto:raj1003@cam.ac.uk}{raj1003@cam.ac.uk}\\
+\hphantom~ \hfill (corresponding author)
+
+\vspace{10mm}
+
+\newpage
+
+
+\begin{bf}
+Abstract
+\end{bf}
+\newline
+In 1989, Hasson introduced the concept of an `amplifier' within animal communication. This display reduces errors in the assessment of traits for which there is direct selection and renders differences in quality among animals more obvious. Amplifiers can evolve to fixation via the benefit they confer on high quality animals. However, they also impose a cost on low quality animals by revealing their lower quality, potentially leading these to refrain from amplifying. Hence, it was suggested that, if the level of amplification correlates with quality, direct choice for the amplifying display might emerge. Using the framework of signal detection theory, this article shows that, if the use of an amplifier is observable, direct choice for the amplifying display can indeed evolve. Consequently, low quality animals may choose to amplify to some extent as well, even though this reveals their lower quality. In effect, the amplifier evolves to become a signal in its own right. We show that, since amplifiers can evolve without direct female choice and are likely to become correlated with male quality, selection for quality-dependent amplification provides a simple explanation for the origin of reliable signals in the absence of pre-existing preferences.
+
+\begin{bf}
+Keywords
+\end{bf}
+\newline
+Animal Communication, Signal Detection Theory, Amplifiers, Signalling, Error-prone Perception, Origin of Preferences
+
+\begin{bf}
+Ethics
+\end{bf}
+\newline
+N/A
+
+\begin{bf}
+Data accessibility
+\end{bf}
+\newline
+The \textit{Mathematica} calculations supporting this article have been uploaded as part of the Supplementary Material.
+
+\begin{bf}
+Competing Interests
+\end{bf}
+\newline
+We have no competing interests.
+
+\begin{bf}
+Authors' contributions
+\end{bf}
+\newline
+Laurens Bogaardt performed the calculations and wrote the majority of this article. Rufus Johnstone came up with the idea of analysing observable amplification using signal detection theory, oversaw the modelling work and wrote part of this article.
+
+\begin{bf}
+Acknowledgements
+\end{bf}
+\newline
+Laurens Bogaardt wishes to thank the \href{http://www.cultuurfonds.nl}{Prins Bernhard Cultuurfonds} for partially funding the M.Phil. programme which lead to this work. Both authors wish to thank \href{http://biology.st-andrews.ac.uk/contact/staffProfile.aspx?sunID=gr41}{Graeme Ruxton}, \href{http://katalog.uu.se/profile/?id=XX2653}{Anders Berglund} and one anonymous person for reviewing this article.
+
+\begin{bf}
+Funding
+\end{bf}
+\newline
+N/A
+
+\newpage
+
+
+\phantomsection
+\label{sec:Contents}
+\addcontentsline{toc}{section}{Contents}
+\renewcommand{\contentsname}{Contents\\} 
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+\label{sec:Introduction}
+
+Within sexual selection, the evolution of male displays is driven by female mating preferences~\cite{MaynardSmith2003,Krebs2009}. The cost that a display confers on male viability is overcompensated for by the increase in the reproductive success of displaying males. In 1989, Hasson presented a population genetic model which showed that particular male displays can evolve as a consequence of female mating preferences without the need for direct choice for those displays~\cite{Hasson1989}. This may occur when females initially base their preferences on a cue that is correlated with some quality-trait of the male, such as viability, health or foraging ability~\cite{Jennions1997}. If a display amplifies the differences between the cues of the males in the population, it can evolve to fixation. Hasson's idea is that such a display, or amplifier, reduces the error in the perception of the cue by females and makes differences in male quality more obvious. Specifically, it improves the correlation between the perceived cue and the male's true quality~\cite{Castellano2010}. This will, then, allow high quality males to benefit more from their high quality cue. On the other hand, a low quality male may do better not to amplify his cue at all. He stands to gain by concealing his low quality.
+
+The names originally given to displays which either increase or decrease the perception of quality differences among males were `amplifiers' and `attenuators'~\cite{Hasson1992}. We may also speak of `revealers' and `concealers'. An amplifier of a signal does not increase the size, strength or impact of that signal, but merely reduces the error in its perception on the receiving end. It reveals, as opposed to conceals, true quality. Certain patterns which reveal body size by making the assessment of size easier have been suggested as examples of amplifiers~\cite{Hasson1991,Berglund2000,Berglund2001,Taylor2000}. It is important to remember that, although the discussion of amplifiers is often placed in a sexual selection context, amplification can also occur in parent-offspring conflicts, predator-prey interactions and intraspecific rivalry.
+
+In his article, Hasson describes a two-locus, two-allele, haploid model of amplifiers~\cite{Hasson1989}. The first locus controls the viability of the male, assumed to be a binary component indicating high or low quality. The second determines whether or not it amplifies. Hasson initially assumes that males are able to amplify their quality cue, but do so independently of their quality. He showed that amplifying displays increase mating success of the more viable males and decrease mating success of the less viable males. Such an unconditional amplifier can evolve if the total benefit to the more viable, amplifying males is higher than the total cost to the less viable, amplifying males. It follows that the higher the frequency of the more viable males, the more likely it is that the amplifier evolves to fixation.
+
+Hasson argues that, due to the negative effect on low quality males, selection will favour the evolution of a modifier which reduces the expression of the amplifier in these males~\cite{Hasson1989}. He adds a coefficient to his model which determines the degree of conditional expression of the amplifier in low quality males. When this coefficient has a positive value, the requirements for the fixation of the amplifier are less restricted by its negative effect on these males. For the extreme case in which low quality males do not amplify at all, it is shown that the sole requirement for the evolution of the amplifier is that it benefits high quality males. Although the modelling method in this article is different, a replication of Hasson's model gives similar qualitative results, described in appendix~\ref{sec:Unobservable Amplification} of the online supplementary material.
+
+When an amplifier has a conditional expression, there is a correlation with the male's true quality. Then, the observation of such an amplifier provides information about the male. Hasson goes on to suggest that this might cause selection to favour the evolution of female choice based on the amplifying display itself, but he does not model this possibility explicitly. Gualla et al. model the evolution of an attractive amplifier that directly appeals to female preferences and show that this attractiveness can benefit females~\cite{Gualla2008}. However, they do not allow for the evolution of those preferences themselves. In their formulation, the amplifier adds a fixed quantity to the perceived attractiveness of a male, with no scope for evolutionary change in female response to the level of amplification.
+
+Here, we use an approach based on signal detection theory to analyse the evolution of amplifiers when females have some ability to assess the use of an amplifying display, and can integrate information from both the direct quality cue, possibly amplified, and the level of amplification itself. In other words, we model the process whereby an amplifier is observable and becomes a signal in its own right. Assuming females can assess the level of amplification, do they take it into account? And, if so, how does this change the behaviour of males? Our analysis is an extension of the standard signal detection model to two dimensions of perceived variation, in which a receiver perceives both an error-prone cue indicating the quality of a sender and a second error-prone cue concerning the level of amplification used by the sender. This mathematical framework can also be applied to study handicap signalling combined with a quality cue~\cite{Bogaardt2016}.
+
+\newpage
+
+
+\section{Model and Assumptions}
+\label{sec:Model and Assumptions}
+
+In our model, there are two individuals: a sender and a receiver. These two players are drawn at random from large populations. The sender may be either of high quality or of low quality. More precisely, let the value $q$ of the two types of quality be $q_{H}$~and~$q_{L}$. The proportion of senders with high quality is $0<p<1$, whereas the proportion of low quality senders is equal to $1-p$. Appendix~\ref{sec:Additional Model and Assumptions} of the online supplementary material includes the extensive form of the model.
+
+The receiver stands to gain by correctly identifying the quality of the sender and by responding appropriately. Let us assume there are two possible responses, $G$ for \textit{good} and $B$ for \textit{bad}. The resulting payoff depends on the four possible outcomes within signal detection theory, which are a \textit{true positive}, a \textit{false negative}, a \textit{false positive} and a \textit{true negative}. For example, a true positive occurs when the receiver responds with $G$ to a truly high quality sender. The associated payoffs are $b_{TP}$, $b_{FN}$, $b_{TN}$ and $b_{FP}$. Obviously, $b_{TP}>b_{FN}$ and $b_{TN}>b_{FP}$.
+
+The receiver, however, cannot assess the sender's quality with complete accuracy. Instead, it must rely on an error-prone cue, $P_{q}$, which stands for the \textit{perception of quality}. This may take on any value. Let us assume the perception of quality follows a normal distribution which is centred around the sender's true quality, but has a variance~$\tilde{\sigma}^{2}_{q}$ reflecting error in perception. The parameter $\tilde{\sigma_{q}}$ is a measure of how precisely the receiver can evaluate the quality of the sender.
+
+The sender always stands to gain by eliciting the favourable response $G$ from the receiver. The associated payoff to the sender, $b_{H}$ or $b_{L}$, may depend on the quality of the sender. Here, $b_{H}$ stands for \textit{benefit high} and $b_{L}$ for \textit{benefit low}. If the response from the receiver is $B$, the sender obtains a payoff of zero, regardless of its quality.
+
+The sender will be able to amplify its cue conditional on its type. This means the sender has influence over the receiver's ability to assess its quality. By increasing the level of amplification, $a$, the sender can reduce the error in the receiver's perception of its quality, resulting in a lower variance. More precisely, $\tilde{\sigma_{q}}(a)$ is a function of $a$ and is decreasing in~$a$. Equation~\ref{eq:CueDetectionModelwithObservableAmplification/SigmaA} gives the simplest of this type of function.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/SigmaA}
+\tilde{\sigma}_{q}(a)=\frac{\sigma_{q}}{a}
+\end{equation}
+
+In this model, the level of amplification chosen by the sender is observable to the receiver. However, the receiver's perception of the chosen level, $P_{a}$, is error-prone and the observed value for $a$ is randomly taken from a normal distribution with mean equal to the true value of $a$ and variance $\sigma^{2}_{a}$. Combining this with the error-prone quality cue, the probability distribution associated with the receiver's perception follows a bivariate normal distribution, given in equation~\ref{eq:CueDetectionModelwithObservableAmplification/Normal}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/Normal}
+\mathcal{N}(P_{q}, P_{a}, q, a, \tilde{\sigma_{q}}(a), \sigma_{a}) = \frac{1}{2 \pi \tilde{\sigma}_{q} \sigma_{a}} e^{-\frac{(P_{q}-q)^2}{2 \tilde{\sigma}_{q}^2}-\frac{(P_{a}-a)^2}{2 \sigma_{a}^2}}
+\end{equation}
+
+The parameter $\sigma_{a}$ is a measure of the observability of the level of amplification used by the sender. The observability of a trait depends on the trait itself and on the psychology of the receiver~\cite{Guilford1991}. Some types of amplifier, such as colours or patterns, are by nature obvious, efficacious and observable. In these cases, $\sigma_a$ is relatively small and the level of amplification can, in principle, be assessed. Furthermore, as our model will show, receivers benefit from the additional information the amplifier provides, so selection would favour improvements in the psychological aspect of trait-perception~\cite{Gualla2008}. This may lead $\sigma_a$ to gradually decrease further. The observability of an amplifier need not automatically make it attractive, but it is a requirement for the evolution of preferences for the trait.
+ 
+We assume amplification is cost-free. In appendix~\ref{sec:Additional Methods}, we speculate what would change if amplification was costly. Here, instead, we assume amplification is restricted to a value between $a_{\text{Min}}$ and $a_{\text{Max}}$. The fact that there is a maximum level of amplification makes sense as, for example, a pattern can only improve perception by so much. Similarly, contrasting colours functioning as amplifiers are restricted by the maximum possible level of contrast~\cite{Hasson1991}. If we fix $a_{\text{Min}}=1$ and $a_{\text{Max}}=2$, then $\sigma_{a}$ is the free parameter which defines the receiver's ability to assess the level of amplification used by the sender. For the quality-axis, the scale is set by $\sigma_{q}$. Let us take $q_{H}=1$ and $q_{L}=0$ and allow $\sigma_{q}$ to be the free parameter which defines the receiver's ability to assess the quality of the sender.
+
+\begin{figure}[h]
+\captionsetup{width=365pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 18.pdf}
+\caption[Model showing the perception of a high and a low quality sender]{The two dimensional signal detection model in equilibrium for Log[$K$]$=0$, $\sigma_{q}=1$ and $\sigma_{a}=1$, showing the perception of a high quality, amplifying sender (diagonal lines) and a low quality, concealing sender (horizontal and vertical lines), as well as the optimal threshold-boundary defining $R_{G}$. (The parameters $K$ and $R_{G}$ will be explained later on).}
+\label{fig:Figure 18.pdf}
+\end{center}
+\end{figure}
+
+Figure~\ref{fig:Figure 18.pdf} shows the two perception-axes which describe the two cues, $P_{q}$ and $P_{a}$, assessed by the receiver. It includes two bivariate normal distributions representing a high and a low quality sender. The $z$-axis in this figure represents the probability density and describes the relative likelihood for these cues to take on a given value. An interactive version of is available in the \textit{Mathematica} notebook which is part of the online supplementary material. If the high quality sender amplifies its quality cue, the error in the quality-perception is reduced, resulting in a distribution which is narrower along the $P_{q}$-axis. Now, the main question is how the receiver distinguishes between a high and a low quality sender.
+
+When the receiver comes across a sender, it tries to assess that sender's quality and its level of amplification. Based on the values of the two perceived cues, it has to make a choice of how to respond. The receiver's strategy consists of a range of values for which it responds with $G$ and a complementary range of values for which it responds with~$B$. This is expressed in equation~\ref{eq:CueDetectionModel/RegionG}. Let us define the region on the two-dimensional perception-space for which it responds with $G$ as $R_{G}$, for \textit{region good}. Its complement, $R_{B}$, stands for \textit{region bad}.
+\begin{equation}
+\label{eq:CueDetectionModel/RegionG}
+R_{G} = {R_{B}}^{c}
+\end{equation}
+
+Figure~\ref{fig:Figure 18.pdf} shows region $R_{G}$ meshed with diagonal lines and bounded by a parabola. All other values on this plane result in the response $B$. In the next section, we will try to find out what the receiver's optimal strategy is, i.e. where $R_{G}$ and $R_{B}$ lie. We will find out that, indeed, these regions are separated by a parabola-shaped boundary dependent on the model's parameters and on the senders' chosen levels of amplification. A simpler model with unobservable amplification is presented in appendix~\ref{sec:Unobservable Amplification} of the online supplementary material and may illuminate some of the mathematics of the following section.
+
+\newpage
+
+
+\section{Methods}
+\label{sec:Methods}
+
+The payoff the receiver obtains when it correctly identifies a high quality sender, by responding with $G$, is $b_{TP}$. The probability of a perceived sender being of high quality is given by the appropriate bivariate normal distribution, multiplied by the proportion of high quality senders, $p$. Therefore, the expected payoff of correctly identifying a high quality sender is equal to $b_{TP}$ weighted by its probability; the double integral of the bivariate normal distribution over region $R_{G}$ multiplied by $p$. Similar calculations follow for the incorrect identification of a high quality sender and for the identification of a low quality sender, leading to the receiver's expected payoff, $E_{R}$, as described in equation~\ref{eq:CueDetectionModelwithObservableAmplification/PayoffR}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/PayoffR}
+\begin{array}{rcl}
+E_{R}(R_{G}) &=& b_{TP} \; p \displaystyle \iint_{R_{G}} \mathcal{N}(P_{q}, P_{a}, 1, a_{H}, \frac{\sigma_{q}}{a_{H}}, \sigma_{a}) \; dP_{q}dP_{a} +\\
+&&b_{FN} \; p \displaystyle \iint_{R_{B}} \mathcal{N}(P_{q}, P_{a}, 1, a_{H}, \frac{\sigma_{q}}{a_{H}}, \sigma_{a}) \; dP_{q}dP_{a} +\\
+&&b_{FP} \; (1-p) \displaystyle \iint_{R_{G}} \mathcal{N}(P_{q}, P_{a}, 0, a_{L}, \frac{\sigma_{q}}{a_{L}}, \sigma_{a}) \; dP_{q}dP_{a} +\\
+&&b_{TN} \; (1-p) \displaystyle \iint_{R_{B}} \mathcal{N}(P_{q}, P_{a}, 0, a_{L}, \frac{\sigma_{q}}{a_{L}}, \sigma_{a}) \; dP_{q}dP_{a}
+\end{array}
+\end{equation}
+
+In order to find out how the receiver should best respond, i.e. what $R_{G}$ is optimal, let us define $t=\partial R_{G}$ as the boundary of the region. Using differentiation under the integral sign, we can see how changes in this boundary affect the receiver's payoff. This is described in more detail in appendix~\ref{sec:Additional Methods} of the online supplementary material. In this two-dimensional signal detection model, the optimal $t$ can be described as a function of $P_{q}$, as in equation~\ref{eq:CueDetectionModelwithObservableAmplification/Threshold}. Then, $t(P_{q})$ defines a threshold-boundary within the two-dimensional perception-space. This can be seen as the thick parabola in figure~\ref{fig:Figure 18.pdf}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/Threshold}
+\begin{array}{rcl}
+t(P_{q})&=&\displaystyle \frac{a_{H} + a_{L}}{2} + \frac{a_{H}^{2}}{2 (a_{H} - a_{L})} \frac{\sigma_{a}^{2}}{\sigma_{q}^{2}} - \frac{\sigma_{a}^{2}}{a_{H} - a_{L}} \text{Log} [\bar{K}] \\
+&&-\displaystyle \frac{a_{H}^2}{a_{H} - a_{L}} \frac{\sigma_{a}^2}{\sigma_{q}^2} P_{q} + \frac{a_{H}+a_{L}}{2} \frac{\sigma_{a}^2}{\sigma_{q}^2} P_{q}^{2}
+\end{array}
+\end{equation}
+
+Here, we made use of a new parameter, $\bar{K}$, defined in equation~\ref{eq:KBar}. Following Johnstone, the parameter $K$ represents the receiver's incentive to respond and is a measure of the relative costs and risks of false positives and false negatives~\cite{Johnstone1997}. The parameter $\bar{K}$ is an `amplified'~version~of~$K$.
+\begin{equation}
+\label{eq:KBar}
+\bar{K}=\frac{a_{H}}{a_{L}}K=\frac{a_{H}}{a_{L}}\frac{p}{1-p}\frac{b_{TP}-b_{FN}}{b_{TN}-b_{FP}}
+\end{equation}
+
+The optimal strategy for the receiver consists of a region $R_{G}$ for which it responds to the sender with $G$ and a complementary region $R_{B}$ for which it responds with $B$. These are defined by the optimal threshold $t(P_{q})$, as shown in equation~\ref{eq:CueDetectionModelwithObservableAmplification/RG}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/RG}
+R_{G} = \{P_{q}, P_{a} \in \mathbb{R}^{2} \, | \, P_{a}>t(P_{q})\}
+\end{equation}
+
+Whenever the perceived quality of the sender falls below the threshold value $t$, when it falls in region~$R_{B}$, the receiver responds with $B$. If $K$ increases, threshold $t$ moves to lower values. This means the receiver will respond more favourably to the sender by associating a wider range of values with a high quality individual. The parameter $K$ can increase if the proportion of high quality senders, $p$, increases or when the payoffs change such that the receiver has a larger incentive to respond favourably. Figure~\ref{fig:Figure 18.pdf} shows this threshold for $K=1$.
+
+In order to find out how the sender should best respond, i.e. what level of amplification is optimal, let us examine its expected payoff, $E_{S}$. Given the receiver's strategy, this payoff is a function of the chosen level of~$a$, shown in equation~\ref{eq:CueDetectionModelwithObservableAmplification/PayoffS}. Here, the integral is, again, performed over two variables, where $b_{q} \in \{b_{H}, b_{L}\}$ and $q \in \{1, 0\}$.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/PayoffS}
+E_{S}(a) = b_{q} \displaystyle \iint_{R_{G}} \mathcal{N}(P_{q}, P_{a}, q, a, \frac{\sigma_{q}}{a}, \sigma_{a}) \; dP_{q}dP_{a}
+\end{equation}
+
+The best response of the sender to the receiver's strategy is to increase its level of amplification if this increases its expected payoff and decrease it otherwise. Looking at figure~\ref{fig:Figure 18.pdf}, this coincides with getting as much probability density within region~$R_G$ as possible. At equilibrium, the sender maximises its payoff, holding the receiver's strategy constant. We cannot obtain a closed form for the integral in equation~\ref{eq:CueDetectionModelwithObservableAmplification/PayoffS}, however, we can use it to numerically estimate the optimal strategy of the sender. This is described more fully in appendix~\ref{sec:Additional Methods} of the online supplementary material. The optimal level of amplification is independent of $b_{H}$ and $b_{L}$.
+
+\newpage
+
+
+\section{Results}
+\label{sec:Results}
+
+The behaviour predicted by our model depends on the values of the model's parameters. We describe optimal behaviour as a pair $(a_{\text{H}}, a_{\text{L}})$ where $a_{\text{H}}$ is the level of amplification chosen by a high quality sender and $a_{\text{L}}$ is the level chosen by a low quality sender. Figure~\ref{fig:Figure 10.pdf} depicts part of parameter-space and shows the various zones which result in qualitatively different behaviour. A detailed description of the methods leading up to this figure is presented in appendix~\ref{sec:Additional Results} of the online supplementary material. It can be seen that, at equilibrium, the high quality sender amplifies either at the maximum or at the minimum level, $a_{\text{Max}}$ or $a_{\text{Min}}$. The low quality sender chooses a level of amplification along this range, $a_{\text{Min}} \leq a_{\text{L}} \leq a_{\text{Max}}$, depending on the model's parameters. As $K$ always enters the equations inside a Log, it is most useful to depict parameter-space as a function of $\sigma_{q}$, $\sigma_{a}$ and Log[$K$]. By setting $\sigma_{a}=6$, we can show part of parameter-space in two dimensions.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 10.pdf}
+\caption[Zones of equilibria in parameter-space]{Zones of equilibria for $\sigma_{a}=6$, $a_{\text{Min}}=1$ and $a_{\text{Max}}=2$.}
+\label{fig:Figure 10.pdf}
+\end{center}
+\end{figure}
+
+\enlargethispage{3mm}
+
+There are three numbered lines in figure~\ref{fig:Figure 10.pdf} which carve out different zones in parameter-space. The line numbered as~`1' separates a zone for which the low quality sender does not amplify at all, $a_{L}=a_{\text{Min}}$, and a zone for which it amplifies at least partially, $a_{L}>a_{\text{Min}}$. This line is the only one dependent on $\sigma_{a}$ and moves upwards for higher values of $\sigma_{a}$. Below this line, $\sigma_{q}$ is low and $\sigma_{a}$ is high, and the receiver pays relatively more attention to the quality cue than to its assessment of the level of amplification. In this case, for the low quality sender, the cost of amplifying in terms of revealing its low quality is higher than the benefit of amplifying in terms of resembling a high quality sender. Therefore, the low quality sender will not want to amplify and equilibria for which $a_{L}=a_{\text{Min}}$ are stable. Above this line, the balance changes and the low quality sender will benefit by amplifying at least partially.
+
+Line~`2' of figure~\ref{fig:Figure 10.pdf} separates a zone for which the low quality sender amplifies maximally, $a_{L}=a_{\text{Max}}$, and a zone for which it amplifies below this level, $a_{L}<a_{\text{Max}}$. If both types of sender amplify at the same, maximum level, the receiver cannot use this level to discriminate between the two types. It will solely pay attention to the quality cue. With identical levels of amplification, the behaviour of the receiver is the same as that predicted by our model with unobservable amplification, described in appendix~\ref{sec:Unobservable Amplification}. When Log[$K$] and $\sigma_{q}$ are high, the receiver is very lenient. It even responds favourably to perceived quality cues below the mean of the low quality sender. This results in an incentive for the low quality sender to increase its level of amplification. Therefore, to the right of this line, the $(a_{\text{Max}},a_{\text{Max}})$-equilibrium is stable. On the left side of this line, the low quality sender will amplify at a lower level.
+
+Finally,~line `3' of figure~\ref{fig:Figure 10.pdf} separates a zone for which the high quality sender always amplifies maximally, $a_{H}=a_{\text{Max}}$, and a zone for which not amplifying, $a_{H}=a_{\text{Min}}$, becomes a second, stable equilibrium. The one the model ends up in depends on the starting point of the dynamics and on the basins of attraction of the equilibria. If both types of sender amplify at the same, minimum level, the receiver cannot use this level to discriminate between the two types. It will solely pay attention to the quality cue. Furthermore, when Log[$K$] is negative and $\sigma_{q}$ is high, the receiver is fairly cautious. Without any amplification, it only responds favourably to perceived quality cues above the mean of the high quality sender. This results in an incentive for the high quality sender to decrease its level of amplification. Therefore, the $(a_{\text{Min}},a_{\text{Min}})$-equilibrium is stable. With some amplification, the receiver's strategy changes and it takes into account the sender's level of amplification. This results in an incentive for the high quality sender to increase its level of amplification. Therefore, the $(a_{\text{Max}},a_{\text{L}})$-equilibrium is also stable. On the right side of this line, the high quality sender will always increase its amplification up to the maximum level.
+
+\begin{figure}[!h]
+\captionsetup{width=350pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 14.pdf}
+\caption[Optimal levels of amplification for a high and a low quality sender]{As $\sigma_{a}$ decreases, the receiver becomes better at assessing the level of amplification chosen by the sender. The figure shows, for Log($K$)$=0$ and $\sigma_{q}=1$, the equilibrium of the relative difference in these levels for the high and the low quality sender, $\Delta a$, as a function of $\sigma_{a}$ (solid), as well as the information content in bits of the two cues obtained by the receiver: quality information (dotted), amplifier information (dashed) and both cues combined (dot-dashed).}
+\label{fig:Figure 14.pdf}
+\end{center}
+\end{figure}
+
+It is interesting to see how the optimal levels of amplification change as $\sigma_{a}$ decreases. The parameter $\sigma_{a}$ is a measure of the receiver's ability to assess the level of amplification used by the sender. Starting from unobservable amplification, which is equivalent to a very high $\sigma_{a}$, receivers may evolve the ability to assess the senders' quality via their use of an amplifying display. Figure~\ref{fig:Figure 14.pdf} plots the relative difference, $\Delta a$, between the level of amplification of the high and the low quality sender. The variable $\Delta a$ is defined in equation~\ref{eq:Deltaa}. It is assumed that the model is always in an equilibrium where the high quality sender amplifies maximally, i.e. the separating equilibrium.
+\begin{equation}
+\label{eq:Deltaa}
+\Delta a = \frac{a_{\text{Max}}-a_{\text{L}}}{a_{\text{Max}}-a_{\text{Min}}}
+\end{equation}
+
+Figure~\ref{fig:Figure 14.pdf} shows that, as $\sigma_{a}$ decreases, the low quality sender will amplify at a higher level and the difference with the high quality sender, $\Delta a$, decreases. Figure~\ref{fig:Figure 1314151617} of appendix~\ref{sec:Additional Results} extends this for various values of $\sigma_{q}$ and Log[$K$] and shows that, as Log[$K$] increases, the receiver has a higher incentive to respond favourably and the low quality sender is generally likely to amplify its cue more. Furthermore, when $\sigma_{q}$ increases, the receiver pays relatively more attention to the use of the amplifier, resulting in the low quality sender choosing a higher level of amplification.
+
+It is possible to summarise the key properties of our model using the information content transmitted from the sender to the receiver~\cite{Applebaum1996}. This is also shown in figure~\ref{fig:Figure 14.pdf}. The receiver obtains two cues with which the prior probability of a high quality sender can be updated to the posterior probability. As the error $\sigma_{a}$ gets smaller, the information content of the cue informing the receiver of the sender's level of amplification tends to go up. At some point, however, the sender notices that it pays to amplify its cue, even when it is of low quality itself. This is because the receiver might believe a sender to be of high quality when it is willing to use an amplifier. If low quality senders also amplify, the correlation between the quality of the sender and the level of amplification decreases. Figure~\ref{fig:Figure 14.pdf} shows, as a dashed line, how the amplifier information decreases for very low~$\sigma_{a}$.
+
+The information conveyed by the quality cue is independent of $\sigma_{a}$. However, the dotted line in figure~\ref{fig:Figure 14.pdf}, representing its information content, does go up as receivers evolve the ability to assess the senders' level of amplification. This is because senders will amplify their cue more as $\sigma_{a}$ becomes smaller. By definition, the effect of amplification is that the error in the perception of quality goes down. As such, the information content of the quality cue tends to go up with lower values of $\sigma_{a}$.
+
+\newpage
+
+
+\section{Discussion}
+\label{sec:Discussion}
+
+Within sexual selection, our model can be interpreted to show that males will display an amplifier even when there is no direct female choice for that display. When there is conditional expression of the amplifier, and it thus correlates with male quality, it pays females to be able to assess the use of the amplifier. The observability of the amplifier need not automatically make it attractive~\cite{Gualla2008,Castellano2010}. However, as a consequence of the correlation with quality, it allows for direct choice to evolve. With increased precision of the amplifier assessment, females may not only base their mating decisions on the quality cue they perceive but also on the sender's chosen level of amplification. In a sense, the amplifier thus becomes a signal in its own right.
+
+One consequence of amplifiers evolving a conditional expression is that this can potentially remove the theoretical difficulty of explaining the origin of direct female choice for a male display. Previous models of sexual selection show that female choice that is based on variance in a display's expression must be sufficiently common before the onset of the display~\cite{Kirkpatrick1982, Pomiankowski1987}. High initial frequency of choice is usually explained by pleiotropy, genetic drift or sensory biases~\cite{Kirkpatrick1982, Heisler1984, West-Eberhard1984, Kirkpatrick1987, Rodd2002}. The evolution of amplifiers provides another route for the evolution of preferences. Direct female choice for any display can evolve more easily after the display already exists and after the degree of its expression is correlated with quality. As amplifiers can evolve without direct female choice and are likely to become correlated with male quality, they can set off the evolution of sexual~displays.
+
+Whether females have evolved a preference for amplifiers can be seen from the shape of the threshold boundary. As shown in figure~\ref{fig:Figure 18.pdf}, senders with higher levels of amplification are responded to more favourably. Once direct female choice for an amplifier has been established, the conditions may lead to a Fisher runaway process or to handicap signalling~\cite{Hasson1990}. Handicap signalling was first described in economics in Spence's signalling model~\cite{Spence1973}. Within biology, it was independently suggested by Zahavi using verbal arguments and modelled by Grafen~\cite{Zahavi1975, Zahavi1977, Grafen1990, Grafen1990a}. Although the concept is a well-established theory of conspicuous male display, like the Fisher runaway process, it requires direct female choice well before it pays males to produce such a display. One of the main contributions this article hopes to make is to provide a formal description of a route to the origin of preferences, i.e. to show how female choice for a display can evolve.
+
+The classification of displays has been the subject of many works~\cite{Hasson1994,MaynardSmith1995,MaynardSmith2003,Gualla2008}. Understanding the various types of displays is not easy and drawing clear boundaries is often unnatural~\cite{Gualla2008}. Maynard Smith suggested defining terms in relation to models and their assumptions~\cite{MaynardSmith1995}. In this sense, there would seem to be a clear distinction between signals, which are the focus of direct receiver preference, and amplifiers, which are not themselves assessed or chosen, but influence the assessment of other traits. Even in terms of abstract modelling, however, our present analysis suggests that it is hard to distinguish clearly between signals and amplifiers, as the same trait may come to play both roles. Moreover, in the real world, it will likely often prove difficult to separate the amplifying aspect of a display from the signalling component. It is an open challenge to empiricists to determine whether amplifiers are actually applied in any type of animal interaction and whether there is direct choice for these displays. The specific predictions of our model may help focus such empirical investigation.
+
+Firstly, we predict that, at equilibrium, there will be a direct correlation between the amplifier and female preference. There are also correlations between the quality cue and female preference and between male quality and the amplifier. Note that heteroscedasticity should be expected due to the effect of the amplifier on quality assessment. As the amplifier itself is attractive, manipulating its expression in an experiment should both positively affect the average attractiveness of the manipulated individuals as well as the correlation between the quality cue and female preference in the population. It is likely that low quality males become less attractive with increased levels of amplification as their quality cue then better reveals their low quality. They may, however, become more attractive if females place emphasis on the use of the amplifier. In fact, a combination of both these effects takes place, possibly having a neutral impact on overall attractiveness. This is not the case when amplification is unobservable; higher levels of amplification then unambiguously leads to a lower attractiveness for low quality males. In practice, it may prove hard to distinguish between these two cases.
+
+In order to illustrate the type of amplification described by our signal detection model with observable amplification, let us look at a speculative example. In pipefish, \textit{Syngnathus typhle}, sex roles are reversed and it is the males who select females~\cite{Berglund2000}. Female body size is an important measure for males, as larger females can produce large, energy-rich eggs. Females have a sexual display; a cross-wise striped pattern along their body. They can increase or decrease the contrast of this pattern within a minute, allowing for quality-dependent expression of the trait. In a psychological experiment, using human students as observers, it has been shown that this pattern can facilitate the assessment of width of a rectangle~\cite{Berglund2000}. If the same applies to pipefish, males will find it easier to assess body size of females who show this amplifying display. In an experiment manipulating the display by painting females and by controlling for sexual dance-movements by sedating them and moving them in a dance-like fashion by a motor, males preferred the painted females over the control group~\cite{Berglund2001}. This suggests that, if the pattern indeed functions as an amplifier, it is an easily observable trait for which there is direct preference.
+
+\enlargethispage{7mm}
+
+Female choice is not the only selection mechanism conceivable which may be responsible for the evolution of amplifiers. Amplifiers can emerge in any communication interaction in which one player wishes to obtain information about another player. It may even occur in economics~\cite{Bogaardt2016a}. Situations other than sexual selection in which animal communication is important are, for example, parent-offspring conflicts, predator-prey interactions or intraspecific rivalry. Consequently, there may be driving forces other than female preferences behind the evolution of amplifiers. We conclude that the observability of amplifying displays can be an important feature for the evolution of the preferences of predators and rivals as well as those of mates, and may help us better understand the origin of many types of animal signals.
+
+\newpage
+
+
+\phantomsection
+\label{sec:Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\renewcommand{\refname}{Bibliography}
+\bibliographystyle{vancouver}
+\bibliography{../Bibliography}
+
+\newpage
+
+
+\listoffigures
+
+\newpage
+
+
+\appendix
+
+\section{Additional Model and Assumptions}
+\label{sec:Additional Model and Assumptions}
+
+In section~\ref{sec:Model and Assumptions}, a verbal description of our model was presented. The model may also be given in extensive form, as depicted in figure~\ref{fig:Figure 8.pdf}. This figure shows all the steps in the model, starting in the middle where Nature makes a random choice between a high quality sender with probability $p$ and a low quality sender with probability $1-p$. The sender has the ability to amplify and chooses a level of $a$. The value of $a$ is not directly observable to the receiver, as indicated by the dotted lines. Nature then makes another random choice concerning the quality cue the receiver perceives, chosen from a normal distribution. Nature then makes a final random choice concerning the receiver's perception of the level of amplification, also chosen from a normal distribution. The dotted lines indicate the receiver's information set. It cannot perfectly assess whether the observation of quality came from a high or low quality sender. Ultimately, the receiver has to make a choice between responding to the sender with either $G$ or $B$. Amplification may be costly, however, in our model we assume that $c(a)=0$ for both types of sender.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.64]{"Figure 8.pdf}
+\caption[]{The extensive form of the model with observable amplification.}
+\label{fig:Figure 8.pdf}
+\end{center}
+\end{figure}
+
+It should be noted that the choice for the specific function for $\tilde{\sigma}_{q}(a)$ may influence the final results. This is because the effect of $a$ is twofold: increased levels of $a$ result in a smaller variance in the quality perception and increased levels of $a$ result in a higher mean for the observability of $a$. The interplay between the observability of $a$ and its influence on the quality cue is non-trivial. Analyses of this model using both $\tilde{\sigma}_{q}(a)=\frac{\sigma_{q}}{a^2}$ and $\tilde{\sigma}_{q}(a)=\frac{\sigma_{q}}{\sqrt{a}}$ show that the final results do not change qualitatively with a different functional form relative to our simple choice, given in equation~\ref{eq:CueDetectionModelwithObservableAmplification/SigmaA}.
+
+It should also be noted that amplification may be costly. In our model, we assumed amplifiers to have no cost. Amplifiers can be e.g. patterns, colours or behaviours. Each of these may, for instance, be energetically costly to maintain or may cause the animal to draw attention from predators. Therefore, in some cases, it makes sense to associate a cost which increases with the level of amplification. Let us speculate what would change in our model if amplification is indeed costly. We keep the actual modelling for further~work.
+
+Hasson showed that amplifiers can evolve even when they pose a considerable cost~\cite{Hasson1989}. The sole requirement is that the total benefit is larger than the total cost. In a sexual selection context, the benefit of amplification comes from its effect on females and the increased reproductive success of the male. For unobservable amplification, this benefit largely falls on high quality males through the stronger correlation between their quality cue and their true quality. In our model of observable amplification, low quality males can also benefit by amplifying. This follows from females' direct preference for the trait. As such, it is possible for amplification to be costly while still retaining a positive net benefit to the sender.
+
+The lines in figure~\ref{fig:Figure 10.pdf} separate zones in parameter-space with qualitatively different behaviour. Line~`1' separates a zone for which the low quality sender does not amplify at all, $a_{L}=a_{\text{Min}}$, and a zone for which it amplifies at least partially, $a_{L}>a_{\text{Min}}$. If amplification were costly, this line would likely move upwards and the range of parameters for which a low quality sender amplifies would decrease. Line~`2' of figure~\ref{fig:Figure 10.pdf} separates a zone for which the low quality sender amplifies maximally, $a_{L}=a_{\text{Max}}$, and a zone for which it amplifies below this level, $a_{L}<a_{\text{Max}}$. This line would move rightward to higher values of Log[$K$] with increased cost. Finally, line~`3' of figure~\ref{fig:Figure 10.pdf} separates a zone for which the high quality sender always amplifies maximally, $a_{H}=a_{\text{Max}}$, and a zone for which not amplifying, $a_{H}=a_{\text{Min}}$, becomes a second, stable equilibrium. Costly amplification would likely also result in this line moving rightward to higher values of~Log[$K$].
+
+Lastly, let us consider a differential cost. As Hasson already pointed out, amplification inherently results in a type of differential cost~\cite{Hasson1989}. Even when the amplifier is costfree, the effect of the trait is that it reveals true quality. This effect is positive when of high quality and negative when of low quality. As such, an analogy with handicap signalling can be made~\cite{Zahavi1975}. Adding a differential cost to amplifiers will only increase this effect, making amplification relatively more beneficial to high quality animals and less beneficial to low quality animals. As a result, the evolution of female preferences based on the trait becomes even more likely. In fact, once female preferences are established, the amplification-role of the trait may slowly subside, while the system remains stable due to the regular mechanism of handicap signalling. We suggest that, trough this route, observable amplification can lead to the evolution of various types of animal signals.
+
+\newpage
+
+
+\section{Additional Methods}
+\label{sec:Additional Methods}
+
+In order to find out what definition of $R_{G}$ gives the receiver the highest payoff, a simple mathematical trick can be applied. We can take a `slice' of the two-dimensional normal distribution by fixing one variable, for example, $P_{q}$. This is shown in figure~\ref{fig:Figure 9.pdf}. The mathematics of a bivariate normal distribution with independent errors is such that, when fixing $P_{q}$ by plugging in a number, the resulting function is a simple, one-dimensional normal distribution. Consequently, we can apply the same method of determining the threshold $t$ as for the ordinary one-dimensional signal detection model, described in the article by Johnstone~\cite{Johnstone1997}.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=0.9]{"Figure 9.pdf}
+\caption[]{Slicing the full model.}
+\label{fig:Figure 9.pdf}
+\end{center}
+\end{figure}
+
+To be more precise, let us take a `sliced' version $\tilde{E}_{R}(\tilde{R}_{G}(P_{q}))$ of the receiver's total expected payoff $E_{R}(R_{G})$, by simply not performing one of the two integrals.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/SlicedPayoffR}
+E_{R}(R_{G}) = \displaystyle \int \tilde{E}_{R}(\tilde{R}_{G}(P_{q})) \; dP_{q}
+\end{equation}
+
+Let us now define $t(P_{q})=\partial \tilde{R}_{G}(P_{q})$ as the boundary of the \textit{region good} for this \mbox{one-dimensional} slice of the payoff. Using differentiation under the integral sign, we can see how changes in this boundary affect the receiver's payoff and we obtain equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffR}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffR}
+\frac{d}{dt}\tilde{E}_{R}(t)= \frac{(1-p) \, (b_{TN}-b_{FP}) \, a_{L}}{2 \pi \sigma_{q} \sigma_{a}} e^{-\frac{a_{L}^{2} (0-P_{q})^2}{2 \sigma_{q}^2}-\frac{(a_{L}-t)^2}{2 \sigma_{a}^2}} - \frac{p \, (b_{TP}-b_{FN}) \, a_{H}}{2 \pi \sigma_{q} \sigma_{a}} e^{-\frac{a_{H}^{2} (1-P_{q})^2}{2 \sigma_{q}^2}-\frac{(a_{H}-t)^2}{2 \sigma_{a}^2}}
+\end{equation}
+
+Equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffR} can be set equal to zero and solved for $t$ to find the optimal value of $t(P_{q})$ which defines the receiver's optimal strategy. This is done in equation~\ref{eq:CueDetectionModelwithObservableAmplification/Threshold}. Detailed calculations can be found in the \textit{Mathematica} notebook which is part of the online supplementary material.
+
+Given the receiver's strategy, the sender's payoff is expressed by equation~\ref{eq:CueDetectionModelwithObservableAmplification/PayoffS}. We cannot obtain a closed form for this integral. However, we do not necessarily care about the total payoff to the sender, but more about the marginal payoff of amplifying. By examining the derivative of the payoff with respect to $a$, we can find out if a sender should amplify more or less. Without a closed form for the total payoff, it might seem impossible to find an expression for the derivative. Luckily, another mathematical trick can be applied. Let us first `slice' the sender's payoff by not performing one of the integrals.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/SlicedPayoffS}
+E_{S}(a) = \displaystyle \int \tilde{E}_{S}(a) \; dP_{q}
+\end{equation}
+
+Due to the fact that derivatives and integrals commute, we can change the derivative of the total payoff to an integral over the derivative of the sliced payoff. This concept is expressed in equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffS}. More precisely, we are integrating the sliced marginal payoff of amplifying over the boundary of $R_G$ to obtain the total marginal payoff.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffS}
+\frac{d}{da} E_{S}(a) = \displaystyle \int \frac{d}{da} \tilde{E}_{S}(a) \; dP_{q}
+\end{equation}
+
+The derivative of the sliced payoff does have a closed form, which is too long to include here. The \textit{Mathematica} notebook which is part of the online supplementary material contains all details. Although the integral can still not be solved analytically, we can now use a simple numerical integration over one dimension to estimate the sender's optimal level of amplification.
+
+The equilibrium of the model is computed numerically using the best-response functions of the sender and the receiver. We look for the Nash equilibrium, i.e. the state in which no player has anything to gain by changing its own strategy. To keep things simple, we only take pure strategies into account. Equation~\ref{eq:CueDetectionModelwithObservableAmplification/Threshold} describes the optimal behaviour of the receiver, while equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffS} can be used to determine the optimal behaviour of the sender. Using an iterative process, first the sender's level of $a$ is updated keeping the receiver's behaviour constant and, then, the receiver's $R_G$ is updated keeping the sender's behaviour constant. This is repeated until no player has an incentive to change its behaviour and the Nash equilibrium is found. The final result depends on the parameters of the model, which leads to the different zones of figure~\ref{fig:Figure 10.pdf}.
+
+\newpage
+
+
+\section{Additional Results}
+\label{sec:Additional Results}
+
+The first step in determining the equilibria of this model is to find the various zones of parameter-space. Part of this procedure is explained in appendix~\ref{sec:Unobservable Amplification} and requires us to solve $t(P_{q})=q$ for Log[$K$] where $q \in \{1, 0\}$. In this model, this procedure only makes sense whenever $a_{H}=a_{L}=a$ and the $P_{q}$-dependency of $t(P_{q})$ drops out. This leads to equation~\ref{eq:CueDetectionModelwithObservableAmplification/Zone}.
+\begin{equation}
+\label{eq:CueDetectionModelwithObservableAmplification/Zone}
+Z(\sigma_{q})=\frac{a^{2} (1 - 2 q)}{2 \sigma_{q}^{2}}
+\end{equation}
+
+Equation~\ref{eq:CueDetectionModelwithObservableAmplification/Zone} is independent of $\sigma_{a}$ due to the fact that we assumed $a_{H}=a_{L}=a$. Therefore, it can only be used to determine some of the zones of parameter-space, namely those carved out by lines `2' and `3' of figure~\ref{fig:Figure 10.pdf}. Numerical estimations were used to determine the shape of line `1', which is dependent on $\sigma_{a}$ and is depicted for $\sigma_{a}=6$. This line separates zones for which the low quality sender either amplifies partially or not at all. When $\sigma_{a} \to \infty$, our model reduces to the unobservable amplification model and figure~\ref{fig:Figure 10.pdf} becomes equal to figure~\ref{fig:Figure 4.pdf}. Therefore, the interpretation of the various zones follows very similar lines to the discussion in appendix~\ref{sec:Unobservable Amplification}.
+
+\begin{figure}[h]
+\captionsetup{width=380pt}
+\begin{center}
+\subfloat[Stable equilibrium $a_{L}$ for Log($K$)$=0$]{\label{fig:Figure 12.pdf}\includegraphics[scale=.66]{"Figure 12.pdf}}
+\hspace{10mm}
+\subfloat[Unstable equilibrium $a_{U}$ for Log($K$)$=-2$]{\label{fig:Figure 11.pdf}\includegraphics[scale=.66]{"Figure 11.pdf}}
+\caption[]{The stable equilibrium value of amplification, $a_{L}$, for the low quality sender and the unstable equilibrium value of amplification, $a_{U}$, for the high quality sender, taking $a_{\text{Min}}=1$ and $a_{\text{Max}}=2$.}
+\label{fig:Figure 1112}
+\end{center}
+\end{figure}
+
+As explained, there are zones for which a low quality sender will want to amplify its cue at least partially. Using equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffS}, numerical estimations give us the optimal value of this level of amplification. Figure~\ref{fig:Figure 12.pdf} plots this for Log[$K$]$=0$. Furthermore, there is a zone in parameter-space for which two equilibria are stable. This means there must be an unstable equilibrium separating the two. Using, again, equation~\ref{eq:CueDetectionModelwithObservableAmplification/DifferentialPayoffS}, numerical estimation can determine the value of this unstable equilibrium. If the level of amplification of the high quality sender starts off below this value, it will decrease further to the minimum value; $a_{\text{Min}}$. If, however, it started off above this unstable equilibrium, it will increase further to the maximum possible value; $a_{\text{Max}}$. Figure~\ref{fig:Figure 11.pdf} plots this for Log[$K$]$=-2$.
+
+Finally, we can, again, show how the levels of amplification change as $\sigma_{a}$ decreases. The parameter $\sigma_{a}$ is a measure of the receiver's ability to assess the level of amplification used by the sender. Starting from unobservable amplification, which is equivalent to a very high $\sigma_{a}$ and is modelled in appendix~\ref{sec:Unobservable Amplification}, receivers may evolve the ability to assess the sender's quality via their use of an amplifying display. Figure~\ref{fig:Figure 1314151617} extends figure~\ref{fig:Figure 14.pdf} for various values of Log[$K$] and for various values of $\sigma_{q}$.
+
+\begin{figure}[h]
+\vspace{-3mm}
+\subfloat[Log($K$)$=1$, $\sigma_{q}=1$]{\label{fig:Figure 13.pdf}\includegraphics[scale=.66]{"Figure 13.pdf}}
+\hfill
+\subfloat[Log($K$)$=0$, $\sigma_{q}=0.6$]{\label{fig:Figure 16.pdf}\includegraphics[scale=.66]{"Figure 16.pdf}}\\[-3mm]
+\subfloat[Log($K$)$=0$, $\sigma_{q}=1$]{\label{fig:Figure 14.pdf2}\includegraphics[scale=.66]{"Figure 14.pdf}}
+\hfill
+\subfloat[Log($K$)$=0$, $\sigma_{q}=1.7$]{\label{fig:Figure 17.pdf}\includegraphics[scale=.66]{"Figure 17.pdf}}\\[-3mm]
+\subfloat[Log($K$)$=-1$, $\sigma_{q}=1$]{\label{fig:Figure 15.pdf}\includegraphics[scale=.66]{"Figure 15.pdf}}
+\hfill
+\begin{minipage}[t]{.5\textwidth}
+\captionsetup{width=230pt}
+\vspace{-45mm}
+\caption[]{As $\sigma_{a}$ decreases, the receiver becomes better at assessing the level of amplification chosen by the sender. These figures show the equilibrium of the relative difference in these levels for the high and the low quality sender, $\Delta a$, as a function of $\sigma_{a}$ (solid), as well as the information content in bits of the two cues obtained by the receiver: quality information (dotted), amplifier information (dashed) and both cues combined (dot-dashed).}
+\label{fig:Figure 1314151617}
+\end{minipage}
+\end{figure}
+
+Figure~\ref{fig:Figure 1314151617} shows that, as $\sigma_{a}$ decreases, low quality senders will amplify at a higher level. Furthermore, as $\sigma_{q}$ increases, the receiver pays relatively more attention to the use of the amplifier by the sender, resulting in low quality senders choosing a higher level of amplification. Finally, as Log[$K$] increases, the receiver has a higher incentive to respond favourably and the low quality sender is generally also more likely to amplify its cue.
+
+\newpage
+
+
+\section{Unobservable Amplification}
+\label{sec:Unobservable Amplification}
+
+In this appendix, we examine the simple case of a cue detection model with unobservable amplification. The sender will be able to amplify its cue conditional on its quality, though the level of amplification chosen by the sender is not known to the receiver. This concept is similar to the model by Johnstone~\cite{Johnstone1997}. By increasing the level of amplification, the sender can reduce the error in the receiver's perception of its quality, which again follows a normal distribution.
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/Normal}
+\mathcal{N}(P_{q}, q, \tilde{\sigma}_{q}(a)) = \frac{1}{\sqrt{2 \pi} \tilde{\sigma}_{q}(a)} e^{-\frac{(P_{q}-q)^2}{2 \tilde{\sigma}_{q}(a)^2}}
+\end{equation}
+
+As in the full model, the error in perception is determined by $\tilde{\sigma}_{q}$. The choice for any specific functional form for $\tilde{\sigma}_{q}(a)$ cannot influence the final results as it would only affect the scale by which we measure the effect of amplification. Therefore, let us take a simple option, given in equation~\ref{eq:SigmaA}.
+\begin{equation}
+\label{eq:SigmaA}
+\tilde{\sigma}_{q}(a)=\frac{\sigma_{q}}{a}
+\end{equation}
+
+Figure~\ref{fig:Figure 7.pdf} shows the receiver's perception-axis with two normal distributions representing a high and a low quality sender. If the high quality sender amplifies its quality cue, the variance in the perception-error is reduced, resulting in a narrower distribution.
+
+\begin{figure}[h]
+\captionsetup{width=360pt}
+\begin{center}
+\leavevmode
+\includegraphics[scale=.66]{"Figure 7.pdf}
+\caption[]{Model in equilibrium for Log[$K$]$=0$ and $\sigma_{q}=1$, showing the perception of a high quality sender (dotted) and a low quality sender (dashed), as well as the optimal thresholds at $t_{1}=0.38$ and $t_{2}=2.29$.}
+\label{fig:Figure 7.pdf}
+\end{center}
+\end{figure}
+
+\newpage
+
+The extensive form of this model is presented in figure~\ref{fig:Figure 3.pdf}. The value of $a$ is unobservable to the receiver as indicated by the dotted lines.
+
+\begin{figure}[!h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=.66]{"Figure 3.pdf}
+\caption[]{The extensive form of the model with unobservable amplification.}
+\label{fig:Figure 3.pdf}
+\end{center}
+\end{figure}
+
+As in the full model, the payoff to the receiver is obtained by integrating the normal distribution over the appropriate response-regions, $R_{G}$ and $R_{B}$. This is, now, a single integral over $P_{q}$. The variance in the perception of the high quality sender may be different from the variance in the distribution of the low quality sender, due to potentially different values of $a_{H}$ and $a_{L}$.
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/PayoffR}
+\begin{array}{rcl}
+E_{R}(R_{G}) &=& b_{TP} \; p \displaystyle \int_{R_{G}} \mathcal{N}(P_{q}, 1, \frac{\sigma_{q}}{a_{H}}) \; dP_{q} +\\
+&&b_{FN} \; p \displaystyle \int_{R_{B}} \mathcal{N}(P_{q}, 1, \frac{\sigma_{q}}{a_{H}}) \; dP_{q} +\\
+&&b_{FP} \; (1-p) \displaystyle \int_{R_{G}} \mathcal{N}(P_{q}, 0, \frac{\sigma_{q}}{a_{L}}) \; dP_{q} +\\
+&&b_{TN} \; (1-p) \displaystyle \int_{R_{B}} \mathcal{N}(P_{q}, 0, \frac{\sigma_{q}}{a_{L}}) \; dP_{q}
+\end{array}
+\end{equation}
+
+Taking again $t=\partial R_{G}$ as the boundary of the \textit{region good}, we can use differentiation under the integral sign to obtain equation~\ref{eq:CueDetectionModelwithAmplification/DifferentialPayoffR}.
+
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/DifferentialPayoffR}
+\frac{d}{dt}E_{R}(t)= \frac{(1-p) \; (b_{TN}-b_{FP}) \; a_{L}}{\sqrt{2 \pi} \sigma_{q}} \; e^{-\frac{a_{L}^{2} (0-t)^2}{2 \sigma_{q}^2}} - \frac{p \; (b_{TP}-b_{FN}) \; a_{H}}{\sqrt{2 \pi} \sigma_{q}} \; e^{-\frac{a_{H}^{2} (1-t)^2}{2 \sigma_{q}^2}}
+\end{equation}
+
+If we set equation~\ref{eq:CueDetectionModelwithAmplification/DifferentialPayoffR} equal to zero, we can determine the optimal level of the threshold $t$, which defines the region $R_{G}$. With different variances in the distributions of the perception of quality for the high and the low sender, determining this threshold becomes less trivial than in the standard signal detection model. In fact, there are two thresholds, $t_{1}$ and $t_{2}$, as given by equation~\ref{eq:CueDetectionModelwithAmplification/Threshold}. In the limiting case where $a_{H}=a_{L}$, $t_{1}$ reduces to a simpler expression and $t_{2}$ simply disappears, or more technically, blows up to infinity.
+\begin{subequations}
+\label{eq:CueDetectionModelwithAmplification/Threshold}
+\begin{gather}
+t_{1} = \begin{cases}
+\displaystyle \frac{a_{H}^{2} - \sqrt{a_{H}^{2} a_{L}^{2} + 2(a_{H}^{2} - a_{L}^{2}) \; \sigma_{q}^{2} \; \text{Log}[\bar{K}]}}{a_{H}^{2}-a_{L}^{2}} & \text{if } a_{H} \neq a_{L}\\
+\displaystyle \frac{1}{2}-\frac{\sigma_{q}^{2}}{a_{H}^{2}} \text{Log}[K] & \text{if } a_{H} = a_{L}
+\end{cases}\\
+t_{2}= \begin{cases}
+\displaystyle \frac{a_{H}^{2} + \sqrt{a_{H}^{2} a_{L}^{2} + 2(a_{H}^{2} - a_{L}^{2}) \; \sigma_{q}^{2} \; \text{Log}[\bar{K}]}}{a_{H}^{2}-a_{L}^{2}} & \text{if } a_{H} \neq a_{L}\\
+\infty & \text{if } a_{H} = a_{L}
+\end{cases}
+\end{gather}
+\end{subequations}
+
+If the two values $a_{H}$ and $a_{L}$ are not equal, the two thresholds define a region on the quality-axis for which the receiver does best to respond with $G$. Any value below threshold~$t_{1}$ is considered part of region $R_{B}$ and indicates the perceived cue probably came from a low quality sender. Interestingly, a quality cue which is very high, above threshold~$t_{2}$, is also more likely from a low quality sender than from a high quality sender. This also falls within region $R_{B}$ and the receiver does best to respond with $B$, as described in equation~\ref{eq:CueDetectionModelwithAmplification/RG}.
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/RG}
+R_{G} = \{P_{q} \in \mathbb{R} \ | \ t_{1}<P_{q}<t_{2}\}
+\end{equation}
+
+The prediction that very high perceptions of quality may lead a receiver to respond with $B$ is interesting, however, it is likely that this is simply an artefact of the model. The existence of the upper threshold is highly dependent on the shape of the chosen distribution. In our case, this is due to the long tails of the normal distribution. If we had not assumed a normal distribution to represent the error in perception, there may not have been an upper threshold at all. As such, it should not be expected that this behaviour is truly found in nature.
+
+In this model, the sender has a choice to amplify its quality cue. It can do so in a continuous manner, choosing a level of $a$ anywhere between $a_{\text{Min}}$ and $a_{\text{Max}}$. The expected payoff to the sender, $E_{S}$, is given in equation~\ref{eq:CueDetectionModelwithAmplification/PayoffS}. Here, $b_{q} \in \{b_{H}, b_{L}\}$ and $q \in \{1, 0\}$.
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/PayoffS}
+E_{S}(a) = b_{q} \displaystyle \int_{R_{G}} \mathcal{N}(P_{q}, q, \frac{\sigma_{q}}{a}) \; dP_{q}
+\end{equation}
+
+By differentiating this payoff with respect to $a$, we can find out whether a sender prefers to increase its level of amplification or decrease it. The result is shown in equation~\ref{eq:CueDetectionModelwithAmplification/DifferentialPayoffS}.
+
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/DifferentialPayoffS}
+\frac{d}{da} E_{S}(a) = \frac{b_{q}}{\sqrt{2 \pi} \sigma_{q}} \left( (q-t_{1}) \, e^{-\frac{a^{2} (q-t_{1})^2}{2 \sigma_{q}^2}} - (q-t_{2}) \, e^{-\frac{a^{2} (q-t_{2})^2}{2 \sigma_{q}^2}} \right)
+\end{equation}
+
+We have already mentioned that the existence of $t_{2}$ may not be very realistic. Luckily, its influence on the model is very small. It is easy to see that, when plugging in the optimal value for $t_{2}$, the second term in equation~\ref{eq:CueDetectionModelwithAmplification/DifferentialPayoffS} is much smaller than the first term. This is because $t_{2}$ has a high value, far to the right on the $P_{q}$-axis, where the value of the normal distribution is low. Figure~\ref{fig:Figure 7.pdf} shows this clearly. Therefore, we can choose to ignore this term and focus on the first part of equation~\ref{eq:CueDetectionModelwithAmplification/DifferentialPayoffS}. Whether this expression is positive or negative is now solely dependent on the value of $q-t_{1}$. As such, a sender will want to increase its level of amplification when $t_{1}<q$ and decrease its level of amplification whenever $t_{1}>q$. This result is independent of the size of $b_{H}$ and $b_{L}$.
+
+An equilibrium in our model is reached whenever the sender does not change its level of amplification, given the most optimal behaviour by the receiver. This can occur in two ways. First, the level of amplification may not be able to change due to the restrictions we imposed; $a_{\text{Min}} \leq a \leq a_{\text{Max}}$. Secondly, the sender may have no incentive to change its level of amplification; $\frac{d}{da} E_{S}=0$. This latter alternative occurs whenever~$t_{1}=q$. Consequently, finding out what different types of equilibria emerge from our model is equivalent to determining for which values of the parameters the threshold $t_{1}$ crosses the true quality of the two types of sender, $q \in \{1, 0\}$, and for which values the restrictions are met.
+
+There are two main parameters in this model, $\sigma_{q}$ and $K$. As we have seen in the full model, $K$ only appears inside a Log. Therefore, to determine the equilibria, we are best to examine parameter-space as described by $\sigma_{q}$ and Log[$K$]. Solving $t_{1}=q$ for Log[$K$] gives us equation~\ref{eq:CueDetectionModelwithAmplification/Zone}, which describes the various zones within parameter-space associated with different types of equilibria as a function of $\sigma_{q}$.
+
+\begin{equation}
+\label{eq:CueDetectionModelwithAmplification/Zone}
+Z(\sigma_{q})=\frac{a_{H}^{2} - 2 q a_{H}^{2}- q^{2} a_{L}^{2}}{2 \sigma_{q}^{2}} - \text{Log}[\frac{a_{H}}{a_{L}}]
+\end{equation}
+
+The behaviour predicted by our model depends on the values of the model's parameters. We describe optimal behaviour as a pair $(a_{\text{H}}, a_{\text{L}})$ where $a_{\text{H}}$ is the level of amplification chosen by a high quality sender and $a_{\text{L}}$ is the level chosen by a low quality sender. Figure~\ref{fig:Figure 4.pdf} depicts parameter-space and shows the various zones which result in qualitatively different behaviour. It can be seen that, at equilibrium, the high quality sender amplifies either at the maximum or at the minimum level, $a_{\text{Max}}$ or $a_{\text{Min}}$. The low quality sender chooses a level of amplification along this range, $a_{\text{Min}} \leq a_{\text{L}} \leq a_{\text{Max}}$, depending on the model's parameters.
+
+\begin{figure}[h]
+\begin{center}
+\leavevmode
+\includegraphics[scale=1]{"Figure 4.pdf}
+\caption[]{Zones of equilibria for $a_{\text{Min}}=1$ and $a_{\text{Max}}=2$.}
+\label{fig:Figure 4.pdf}
+\end{center}
+\end{figure}
+
+There are four numbered lines in figure~\ref{fig:Figure 4.pdf} which carve out different zones in parameter-space. The line numbered as~`1' of figure~\ref{fig:Figure 4.pdf} separates a zone for which the low quality sender does not amplify at all, $a_{L}=a_{\text{Min}}$, and a zone for which it amplifies at least partially, $a_{L}>a_{\text{Min}}$. As the low quality sender increases its level of amplification, the receiver automatically responds favourably less often, moving $t_{1}$ up to higher values~\cite{Gualla2008}. This can be seen in the definition of $\bar{K}$ in equation~\ref{eq:KBar} where $a_{L}$ appears in the denominator. It happens because higher levels of amplification lead to more precision in the assessment of quality for the receiver. With increased precision, the receiver is able to become more conservative in its responses. The low quality sender will amplify its cue up to the point where $t_{1}$ crosses the $q_L = 0$ point on the $P_{q}$-axis. Therefore, above this line, the low quality sender will benefit by amplifying at least partially. Below the line, the low quality sender will not want to amplify and equilibria for which $a_{L}=a_{\text{Min}}$ are stable.
+
+Line~`2' separates a zone for which the low quality sender amplifies maximally, $a_{L}=a_{\text{Max}}$, and a zone for which it amplifies below this level, $a_{L}<a_{\text{Max}}$. When Log[$K$] and $\sigma_{q}$ are high, the receiver is very lenient. The threshold $t_{1}$ is then below~$0$, so the receiver even responds favourably to perceived quality cues below the mean of the low quality sender. This results in an incentive for the low quality sender to increase its level of amplification. Therefore, to the right of this line, the $(a_{\text{Max}},a_{\text{Max}})$-equilibrium is stable. On the left side of this line, the low quality sender will amplify at a lower level.
+
+Line~`3' of figure~\ref{fig:Figure 4.pdf} separates a zone for which the high quality sender always amplifies maximally, $a_{H}=a_{\text{Max}}$, and a zone for which not amplifying, $a_{H}=a_{\text{Min}}$, becomes a second, stable equilibrium. The one the model ends up in depends on the starting point of the dynamics and on the basins of attraction of the equilibria. When Log[$K$] is slightly negative and $\sigma_{q}$ is high, the receiver is fairly cautious. Without any amplification, $t_{1}>1$ and it only responds favourably to perceived quality cues above the mean of the high quality sender. This results in an incentive for the high quality sender to decrease its level of amplification. Therefore, the $(a_{\text{Min}},a_{\text{Min}})$-equilibrium is stable. With some amplification, $\bar{K}$ changes and $t_{1}$ moves below $1$. The receiver, then, responds favourably to perceived quality cues below the mean of the high quality sender. This results in an incentive for the high quality sender to increase its level of amplification. Therefore, the $(a_{\text{Max}},a_{\text{Max}})$-equilibrium is also stable. On the right side of this line, the high quality sender will always increase its amplification up to the maximum level.
+ 
+Line~`4' of figure~\ref{fig:Figure 4.pdf} separates a zone for which amplifying maximally, $a_{H}=a_{\text{Max}}$, is no longer a good option for the high quality sender and it always amplifies minimally, and a zone for which both equilibria are stable. When Log[$K$] is very negative and $\sigma_{q}$ is high, the receiver is very cautious. Even if all senders amplify maximally, $t_{1}>1$ and the receiver still only responds favourably to perceived quality cues above the mean of the high quality sender. This results in an incentive for the high quality sender to always decrease its level of amplification. Therefore, the $(a_{\text{Min}},a_{\text{Min}})$-equilibrium is the only stable equilibrium.
+
+The most interesting prediction of our cue detection model with unobservable amplification is that there is a zone within parameter-space for which low quality senders may want to amplify their quality cue. This occurs even though the receiver pays no attention to the level of amplification. The behaviour is in stark contrast to the results of Hasson's model, as well as to the results of a binary game-theoretical model with unobservable amplification, discussed in another article~\cite{Hasson1989, Bogaardt2016a}. It only occurs when the model's parameters are such that $t_{1}<0$ and the receiver responds favourably to perceptions of quality as low as the mean of the low quality senders.
+
+We can solve for the optimal value of the level of amplification of the low quality sender. This is done by examining equation~\ref{eq:CueDetectionModelwithAmplification/Zone} carefully. Solving $t_{1}=0$ for $a_{L}$, we obtain an analytical expression for the level of amplification as a function of Log[$K$] and $\sigma_{q}$.
+\begin{subequations}
+\label{eq:CueDetectionModelwithAmplification/MixedEquilibria}
+\begin{gather}
+a_{L}=a_{\text{Max}} \, e^{\text{Log}[K]-\frac{a_{\text{Max}}^{2}}{2 \sigma_{q}^{2}}}\\
+a_{U}=a_{\text{Min}} \, e^{-\text{Log}[K]-\frac{a_{\text{Min}}^{2}}{2 \sigma_{q}^{2}}}
+\end{gather}
+\end{subequations}
+
+As there is also a zone for which two equilibria are possible, there must be an unstable equilibrium separating the two stable ones. Solving $t_{1}=1$ now for $a_{H}$, we find an analytical expression for the unstable equilibrium $a_{U}$. If the level of amplification of the high quality sender starts off below this value, it will decrease further to the minimum value; $a_{\text{Min}}$. If, however, it started off above this unstable equilibrium, it will increase further to the maximum possible value; $a_{\text{Max}}$. These two expressions are presented in equation~\ref{eq:CueDetectionModelwithAmplification/MixedEquilibria} and, to give a visual idea of their meaning, plotted in figure~\ref{fig:Figure 56}.
+
+\begin{figure}[h]
+\captionsetup{width=380pt}
+\begin{center}
+\subfloat[Stable equilibrium $a_{L}$]{\label{fig:Figure 5.pdf}\includegraphics[scale=.66]{"Figure 5.pdf}}
+\hspace{10mm}
+\subfloat[Unstable equilibrium $a_{U}$]{\label{fig:Figure 6.pdf}\includegraphics[scale=.66]{"Figure 6.pdf}}
+\caption[]{The stable equilibrium value of amplification, $a_{L}$, for the low quality sender and the unstable equilibrium value of amplification, $a_{U}$, for the high quality sender, taking $a_{\text{Min}}=1$ and $a_{\text{Max}}=2$.\\}
+\label{fig:Figure 56}
+\end{center}
+\end{figure}
+
+\enlargethispage{3mm}
+
+Like in the full model, we can calculate the information content of the sender's quality cue by using the standard measures of information and entropy~\cite{Applebaum1996}. This can show the relative importance of the perception of the quality cue. For example, for values of $p = 0.50$ and $\sigma_{q} = 1.00$, the entropy prior to perception is $H_{q} = 1.00$ bits and after perception, if neither sender amplifies, is $H_{P_{q}}(q) = 0.84$ bits. Therefore, for these values, the information content of the sender's quality cue is $I(q, P_{q}) = 0.16$~bits. If the high quality sender amplifies maximally, taking $a_{\text{Max}}=2$, then $H_{P_{q}}(q) = 0.68$ bits. Therefore, for these values, the information content of the sender's quality cue is $I(q, P_{q}) = 0.32$~bits. If both types of sender amplify maximally, then $H_{P_{q}}(q) = 0.51$ bits. Therefore, for these values, the information content of the sender's quality cue is $I(q, P_{q}) = 0.49$~bits. Further calculations are given in the \textit{Mathematica} notebook which is part of the online supplementary material.
+
+Our model predicts that, if an amplifier enhances the perception of an attractive display, there will be a strong correlation between female preference and the quality cue. In this case, there may be a correlation between the amplifier and female preference in field observations, but solely one mediated by the male's quality. According to our model, high quality males will choose to amplify, the same males who are attractive to females. Therefore, the level of amplification should correlate with male quality. This results in a correlation between the amplifier and attractiveness. However, this does not mean that the amplifier itself is attractive. In an experiment manipulating the amplifying display, there should be no correlation between the amplifier and female preference. In fact, low quality males should unambiguously become less attractive with increased levels of amplification. It can also be expected that the correlation between attractiveness and the quality cue increases. However, the overall attractiveness of the manipulated population should not change. Note that heteroscedasticity should be expected due to the effect of the amplifier on quality assessment.
+
+In order to illustrate the type of amplification described by the cue detection model with unobservable amplification, let us look at an example. Amplifiers need not be restricted to patterns, but can also include colours or behaviours. The behaviour and abdominal patterns of the spider \textit{Plexippus paykulli} have been examined and it has been suggested that these function as amplifiers~\cite{Taylor2000}. The condition of these spiders depends on their food intake. When a spider has eaten, its abdomen expands. Female spiders and male rivals are interested in abdominal width due to its correlation with the male's condition. Abdominal exposure itself is a behaviour which allows females to better assess the quality cue of males. Furthermore, the abdominal pattern contrasts the region which does not expand with the region of the abdomen which does expand. This sets a frame by which changes in body condition can be measured. Clearly, the functioning of the abdominal pattern cannot depend on the condition of the spider. However, it is reasonable to suggest the exposing behaviour can fully depend on the condition of the male, although this has not yet been investigated. As such, this behaviour may have evolved as a conditional amplifier.
+
+\end{document}

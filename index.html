@@ -1,14 +1,17 @@
 <html>
-<head>
-<title>
-Redirect
-</title>
-<script>
-window.alert(window.location.pathname.split("/").splice(2,0,"tree","master").join("/"));
-top.location="https://github.com/lbogaardt"+window.location.pathname.split("/").splice(2,0,"tree","master").join("/");
-</script>
-</head>
-<body>
-This page has <a href="http://www.bogaardt.eu">moved</a>.
-</body>
+	<head>
+		<title>
+			Redirect
+		</title>
+		<script>
+			var myPathName = window.location.pathname;
+			var myPathNameArray = myPathName.split("/");
+			myPathNameArray.splice(2, 0, "tree", "master");
+			var myNewPathName = myPathNameArray.join("/");
+			top.location = "https://github.com/lbogaardt" + myNewPathName;
+		</script>
+	</head>
+	<body>
+		This page has <a href="http://www.bogaardt.eu">moved</a>.
+	</body>
 </html>
